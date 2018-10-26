@@ -1,9 +1,10 @@
-package com.mygdx.game;
+package com.learnorstarve.game;
 
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.learnorstarve.game.MyGame;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override

@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.learnorstarve.game;
 
 /**
  * Created by markapptist on 2018-09-26.

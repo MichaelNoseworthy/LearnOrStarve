@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.learnorstarve.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
