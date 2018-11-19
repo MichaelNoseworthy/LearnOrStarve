@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.learnorstarve.game;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
