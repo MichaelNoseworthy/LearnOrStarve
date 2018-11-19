@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.learnorstarve.game;
 
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
