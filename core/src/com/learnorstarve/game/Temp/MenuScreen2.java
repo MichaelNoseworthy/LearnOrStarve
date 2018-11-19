@@ -1,4 +1,4 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
@@ -14,7 +14,7 @@ import com.badlogic.gdx.utils.Align;
  * Created by markapptist on 2018-11-12.
  */
 
-public class MenuScreen extends ScreenBeta {
+public class MenuScreen2 extends ScreenBeta2 {
 
     TextButton startButton;
     TextButton helpButton;
@@ -80,9 +80,9 @@ public class MenuScreen extends ScreenBeta {
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
 
-                if(MyGame.gameScreen == null) {
-                    MyGame.gameScreen = new GameScreen();
-                    MyGame.setActiveScreen(MyGame.gameScreen);
+                if(MyGame2.gameScreen == null) {
+                    MyGame2.gameScreen = new GameScreen2();
+                    MyGame2.setActiveScreen(MyGame2.gameScreen);
                 }
             }
         });

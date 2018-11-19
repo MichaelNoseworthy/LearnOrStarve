@@ -1,4 +1,4 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 

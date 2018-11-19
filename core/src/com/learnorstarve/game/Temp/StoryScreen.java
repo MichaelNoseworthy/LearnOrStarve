@@ -1,16 +1,16 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 /**
  * Created by markapptist on 2018-11-16.
  */
 
-public class StoryScreen extends ScreenBeta {
+public class StoryScreen extends ScreenBeta2 {
 
     Scene scene;
-    ActorBeta continueKey;
+    ActorBeta2 continueKey;
 
     public void initialize() {
-        ActorBeta background = new ActorBeta(0, 0, mainStage);
+        ActorBeta2 background = new ActorBeta2(0, 0, mainStage);
         background.loadTexture("sprites/backgrounds/background0_59.png");
         background.setSize(WIDTH, HEIGHT);
         background.setOpacity(0);

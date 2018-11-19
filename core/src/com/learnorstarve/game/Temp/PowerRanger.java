@@ -1,4 +1,4 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
  * Created by markapptist on 2018-11-12.
  */
 
-public class PowerRanger extends ActorBeta {
+public class PowerRanger extends ActorBeta2 {
 
     Animation<TextureRegion> idle;
     Animation<TextureRegion> walk;

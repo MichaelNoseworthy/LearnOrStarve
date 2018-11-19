@@ -1,4 +1,4 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
  * Created by markapptist on 2018-11-12.
  */
 
-public class GameScreen extends ScreenBeta {
+public class GameScreen2 extends ScreenBeta2 {
 
     BlueRanger blueRanger;
 
@@ -21,19 +21,19 @@ public class GameScreen extends ScreenBeta {
     Skin skin;
     Skin uiSkin;
 
-    ActorBeta foreground;
-    ActorBeta background;
+    ActorBeta2 foreground;
+    ActorBeta2 background;
 
     @Override
     public void initialize() {
 
-        ActorBeta.setWorldBounds(WIDTH, HEIGHT);
+        ActorBeta2.setWorldBounds(WIDTH, HEIGHT);
 
-        foreground = new ActorBeta(0, 0, mainStage);
+        foreground = new ActorBeta2(0, 0, mainStage);
         foreground.loadTexture("sprites/backgrounds/background0_59.png");
         foreground.setSize(WIDTH, HEIGHT);
 
-        background = new ActorBeta(900, 300, mainStage);
+        background = new ActorBeta2(900, 300, mainStage);
         background.loadTexture("sprites/backgrounds/background0_20.png");
         background.setScale(2.0f);
 

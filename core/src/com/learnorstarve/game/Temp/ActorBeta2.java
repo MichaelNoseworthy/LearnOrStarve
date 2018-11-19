@@ -1,4 +1,4 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
@@ -23,7 +23,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
  *  Extend the Actor class to include graphics and collision detection.
  *  Actor class stores data such as position and rotation.
  */
-public class ActorBeta extends Actor {
+public class ActorBeta2 extends Actor {
     private TextureRegion textureRegion;
     private Rectangle rectangle;
 
@@ -42,7 +42,7 @@ public class ActorBeta extends Actor {
     // stores size of game world for all actors
     static Rectangle worldBounds;
 
-    public ActorBeta() {
+    public ActorBeta2() {
         super();
         textureRegion = new TextureRegion();
         rectangle = new Rectangle();
@@ -59,7 +59,7 @@ public class ActorBeta extends Actor {
         boundaryPolygon = null;
     }
 
-    public ActorBeta(float x, float y, Stage s) {
+    public ActorBeta2(float x, float y, Stage s) {
 
         super();
 
@@ -409,7 +409,7 @@ public class ActorBeta extends Actor {
      * @param width
      * @param height
      */
-    public boolean overlaps(ActorBeta other) {
+    public boolean overlaps(ActorBeta2 other) {
 
         Polygon poly1 = this.getBoundaryPolygon();
         Polygon poly2 = other.getBoundaryPolygon();
@@ -426,7 +426,7 @@ public class ActorBeta extends Actor {
      * @param width
      * @param height
      */
-    public Vector2 preventOverlap(ActorBeta other) {
+    public Vector2 preventOverlap(ActorBeta2 other) {
 
         Polygon poly1 = this.getBoundaryPolygon();
         Polygon poly2 = other.getBoundaryPolygon();
@@ -456,7 +456,7 @@ public class ActorBeta extends Actor {
      * @param height
      */
 
-    public boolean isWithinDistance(float distance, ActorBeta other)
+    public boolean isWithinDistance(float distance, ActorBeta2 other)
     {
         Polygon polygon1 = this.getBoundaryPolygon();
         float scaleX = (this.getWidth() + 2 * distance) / this.getWidth();

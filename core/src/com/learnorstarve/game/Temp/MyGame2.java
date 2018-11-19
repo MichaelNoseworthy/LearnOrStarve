@@ -1,13 +1,13 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 /**
  * Created by markapptist on 2018-09-26.
  */
 
-public class MyGame extends GameBeta {
+public class MyGame2 extends GameBeta2 {
 
-    static MenuScreen menuScreen;
-    static GameScreen gameScreen;
+    static MenuScreen2 menuScreen;
+    static GameScreen2 gameScreen;
 
     boolean paused = false;
 
@@ -16,7 +16,7 @@ public class MyGame extends GameBeta {
 
         super.create();
 
-        menuScreen = new MenuScreen();
+        menuScreen = new MenuScreen2();
 
         setScreen(menuScreen);
     }

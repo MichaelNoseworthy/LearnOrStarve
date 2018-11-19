@@ -1,4 +1,4 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -9,10 +9,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public class SceneSegment {
 
-    private ActorBeta actor;
+    private ActorBeta2 actor;
     private Action action;
 
-    public SceneSegment(ActorBeta a1, Action a2) {
+    public SceneSegment(ActorBeta2 a1, Action a2) {
         actor = a1;
         action = a2;
     }

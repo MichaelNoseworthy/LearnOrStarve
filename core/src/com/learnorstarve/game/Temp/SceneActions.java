@@ -1,4 +1,4 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -23,11 +23,11 @@ public class SceneActions extends Actions {
     }
 
     public static Action moveToScreenRight(float duration) {
-        return Actions.moveToAligned(ActorBeta.getWorldBounds().width, 0, Align.bottomRight, duration);
+        return Actions.moveToAligned(ActorBeta2.getWorldBounds().width, 0, Align.bottomRight, duration);
     }
 
     public static Action moveToScreenCenter(float duration) {
-        return Actions.moveToAligned(ActorBeta.getWorldBounds().width/2, 0, Align.bottom, duration);
+        return Actions.moveToAligned(ActorBeta2.getWorldBounds().width/2, 0, Align.bottom, duration);
     }
 
     public static Action moveToOutsideLeft(float duration) {
@@ -35,6 +35,6 @@ public class SceneActions extends Actions {
     }
 
     public static Action moveToOutsideRight(float duration) {
-        return Actions.moveToAligned(ActorBeta.getWorldBounds().width, 0, Align.bottomLeft, duration);
+        return Actions.moveToAligned(ActorBeta2.getWorldBounds().width, 0, Align.bottomLeft, duration);
     }
 }

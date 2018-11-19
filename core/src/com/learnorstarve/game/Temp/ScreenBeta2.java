@@ -1,4 +1,4 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
@@ -35,7 +35,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
  * Created by markapptist on 2018-10-16.
  */
 
-public abstract class ScreenBeta implements Screen, InputProcessor {
+public abstract class ScreenBeta2 implements Screen, InputProcessor {
 
     protected Stage mainStage;
 
@@ -70,7 +70,7 @@ public abstract class ScreenBeta implements Screen, InputProcessor {
     static int HEIGHT = Gdx.graphics.getHeight();
 
     //CONSTRUCTOR
-    ScreenBeta()
+    ScreenBeta2()
     {
 
         skin = new Skin(Gdx.files.internal("skins/quantum-horizon/skin/quantum-horizon-ui.json"));

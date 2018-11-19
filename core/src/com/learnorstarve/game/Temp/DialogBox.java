@@ -1,4 +1,4 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -14,7 +14,7 @@ import java.awt.TextField;
  * Created by markapptist on 2018-11-15.
  */
 
-public class DialogBox extends ActorBeta {
+public class DialogBox extends ActorBeta2 {
 
     private Label dialogLabel;
     private Label.LabelStyle labelStyle;

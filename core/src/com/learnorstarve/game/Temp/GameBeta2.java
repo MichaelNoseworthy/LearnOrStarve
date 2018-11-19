@@ -1,14 +1,14 @@
-package com.learnorstarve.game;
+package com.learnorstarve.game.Temp;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 
-public abstract class GameBeta extends Game {
+public abstract class GameBeta2 extends Game {
 
-    private static GameBeta game;
+    private static GameBeta2 game;
 
-    public GameBeta() {
+    public GameBeta2() {
         game = this;
     }
 
@@ -20,7 +20,7 @@ public abstract class GameBeta extends Game {
         Gdx.input.setInputProcessor( im );
     }
 
-    public static void setActiveScreen(ScreenBeta s)
+    public static void setActiveScreen(ScreenBeta2 s)
     {
         game.setScreen(s);
     }
