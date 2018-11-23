@@ -21,6 +21,7 @@ public class LevelOne extends ScreenBeta {
     Skeleton skeleton;
 
     Box box;
+    Sound secondarySoundEffect;
 
     @Override
     public void initialize() {

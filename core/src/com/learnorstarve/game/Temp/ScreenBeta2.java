@@ -160,6 +160,10 @@ public abstract class ScreenBeta2 implements Screen, InputProcessor {
 
     }
 
+    public String pageName() {
+        return this.toString();
+    }
+
     public abstract void update(float dt);
 
     @Override

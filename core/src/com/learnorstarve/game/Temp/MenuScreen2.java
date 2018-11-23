@@ -80,10 +80,10 @@ public class MenuScreen2 extends ScreenBeta2 {
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
 
-                if(MyGame2.gameScreen == null) {
-                    MyGame2.gameScreen = new GameScreen2();
-                    MyGame2.setActiveScreen(MyGame2.gameScreen);
-                }
+//                if(MyGame2.gameScreen == null) {
+//                    MyGame2.gameScreen = new GameScreen2();
+//                    MyGame2.setActiveScreen(MyGame2.gameScreen);
+//                }
             }
         });
     }

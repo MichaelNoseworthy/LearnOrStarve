@@ -6,10 +6,10 @@ import com.badlogic.gdx.InputMultiplexer;
 
 public abstract class GameBeta2 extends Game {
 
-    private static GameBeta2 game;
+    private static GameBeta2 game2;
 
     public GameBeta2() {
-        game = this;
+        game2 = this;
     }
 
     @Override
@@ -22,6 +22,6 @@ public abstract class GameBeta2 extends Game {
 
     public static void setActiveScreen(ScreenBeta2 s)
     {
-        game.setScreen(s);
+        game2.setScreen(s);
     }
 }
