@@ -94,14 +94,14 @@ public class MenuScreen extends ScreenBeta {
         blood.centerAtActor(startButton);
         blood.start();
         //blood.setPosition(WIDTH / 2, HEIGHT / 2);
-        blood.setPosition(70, (HEIGHT / 2) + 500);
+        blood.setPosition(70, (HEIGHT / 2) + 100);
         blood.setScale(1.0f);
 
         blood2 = new BloodParticle();
         blood2.centerAtActor(startButton);
         blood2.start();
         //blood.setPosition(WIDTH / 2, HEIGHT / 2);
-        blood2.setPosition((WIDTH / 2) + 200, (HEIGHT / 2) + 500);
+        blood2.setPosition((WIDTH / 2) + 100, (HEIGHT / 2) + 100);
         blood2.setScale(1.0f);
 
         mainStage.addActor(blood);
