@@ -18,22 +18,47 @@ public class OptionsScreen extends ScreenBeta {
      */
 
     TextButton toMainMenu;
+    easyBtn easyButton;
+    optionsBtn optionButton;
+    mediumBtn mediumButton;
+    hardBtn hardButton;
 
     @Override
     public void initialize() {
 
-        uiTable.background(skin.getDrawable("window-c"));
-        uiStage.addActor(tableContainer);
+
 
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setOrigin(Align.center);
         toMainMenu.setTransform(true);
         toMainMenu.setScale(3);
 
+        easyButton = new easyBtn();
+        easyButton.setScale(0.75f,1);
+        optionButton = new optionsBtn();
+        mediumButton = new mediumBtn();
+        mediumButton.setScale(0.75f,1);
+        hardButton = new hardBtn();
+        hardButton.setScale(0.75f,1);
+
+
+
         setUpButton();
 
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
-        uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight()).expandX();
+        easyButton.setPosition(WIDTH/2-260, HEIGHT-535);
+        optionButton.setPosition(WIDTH/2-260, HEIGHT-135);
+        hardButton.setPosition(WIDTH/2-260, HEIGHT-935);
+        mediumButton.setPosition(WIDTH/2-260, HEIGHT-735);
+
+        mainStage.addActor(easyButton);
+        mainStage.addActor(optionButton);
+        mainStage.addActor(hardButton);
+        mainStage.addActor(mediumButton);
+
+        toMainMenu.setPosition(Gdx.graphics.getWidth()/2-100, 200);
+
+        mainStage.addActor(toMainMenu);
+
 
     }
 

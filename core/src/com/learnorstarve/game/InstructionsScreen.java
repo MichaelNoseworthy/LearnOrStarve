@@ -2,6 +2,7 @@ package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.utils.Align;
@@ -14,12 +15,20 @@ import com.learnorstarve.game.ScreenBeta;
 
 public class InstructionsScreen extends ScreenBeta {
     TextButton toMainMenu;
+    instructionsBtn instrBtn;
+    Label label1;
 
     @Override
     public void initialize() {
 
         uiTable.background(skin.getDrawable("window-c"));
         uiStage.addActor(tableContainer);
+
+        label1 = new Label("LABEL", labelStyle);
+        label1.setPosition(WIDTH/2-400, HEIGHT/2+500);
+        label1.setScale(1);
+        label1.setFontScale(1);
+        label1.setText("Place holder for instructions");
 
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setOrigin(Align.center);
@@ -30,6 +39,16 @@ public class InstructionsScreen extends ScreenBeta {
 
         uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
         uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight()).expandX();
+
+        toMainMenu.setPosition(Gdx.graphics.getWidth()/2-100, 200);
+
+        uiStage.addActor(toMainMenu);
+
+        instrBtn = new instructionsBtn();
+        instrBtn.setPosition(WIDTH/2-260, HEIGHT-135);
+        mainStage.addActor(instrBtn);
+        mainStage.addActor(label1);
+
 
     }
 
