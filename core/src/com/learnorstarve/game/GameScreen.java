@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
@@ -21,7 +22,7 @@ import javax.xml.soap.Text;
 
 public class GameScreen extends ScreenBeta {
 
-    Cannon cannon;
+//    Cannon cannon;
     Button toMainMenu;
     Button toWinScreen;
     Button toLoseScreen;
@@ -31,15 +32,15 @@ public class GameScreen extends ScreenBeta {
 
     @Override
     public void initialize() {
-        cannon = new Cannon();
-        Texture holding = new Texture("UI/cannon.png");
-        cannon.setTexture(holding);
-        toMainMenu = new Button();
-        toMainMenu.setPosition(Gdx.graphics.getWidth()/4, 10);
-        toWinScreen = new Button();
-        toWinScreen.setPosition(Gdx.graphics.getWidth()/2, 10);
-        toLoseScreen = new Button();
-        toLoseScreen.setPosition(Gdx.graphics.getWidth()*3/4, 10);
+//        cannon = new Cannon();
+//        Texture holding = new Texture("UI/cannon.png");
+//        cannon.setTexture(holding);
+        toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
+        toMainMenu.setScale(5);
+        toWinScreen = new TextButton("Win Screen", skin.get(("default"), TextButton.TextButtonStyle.class));
+        toWinScreen.setScale(5);
+        toLoseScreen = new TextButton("Lose Screen", skin.get(("default"), TextButton.TextButtonStyle.class));
+        toLoseScreen.setScale(5);
 
         ActorBeta.setWorldBounds(WIDTH, HEIGHT);
 
@@ -54,12 +55,13 @@ public class GameScreen extends ScreenBeta {
         uiStage.addActor(tableContainer);
 
         setUpButtons();
-        cannon.setPosition(0, Gdx.graphics.getHeight() - cannon.getHeight());
+//        cannon.setPosition(0, Gdx.graphics.getHeight() - cannon.getHeight());
 
-        mainStage.addActor(cannon);
-        mainStage.addActor(toMainMenu);
-        mainStage.addActor(toWinScreen);
-        mainStage.addActor(toLoseScreen);
+//        mainStage.addActor(cannon);
+        uiTable.row().padTop(HEIGHT / 2);
+        uiTable.add(toMainMenu).size(toMainMenu.getWidth(),toMainMenu.getHeight());
+        uiTable.add(toWinScreen).size(toWinScreen.getWidth(),toWinScreen.getHeight());
+        uiTable.add(toLoseScreen).size(toLoseScreen.getWidth(),toLoseScreen.getHeight());
 
     }
 
@@ -89,7 +91,7 @@ public class GameScreen extends ScreenBeta {
                 if (MyGame.winScreen == null) {
                     MyGame.winScreen = new WinScreen();
                 }
-                MyGame.setActiveScreen(MyGame.menuScreen);
+                MyGame.setActiveScreen(MyGame.winScreen);
             }
         });
         toLoseScreen.addListener(new ActorGestureListener() {

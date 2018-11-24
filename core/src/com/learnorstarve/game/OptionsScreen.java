@@ -25,6 +25,7 @@ public class OptionsScreen extends ScreenBeta {
         uiTable.background(skin.getDrawable("window-c"));
         uiStage.addActor(tableContainer);
 
+        uiStage.addActor(tableContainer);
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setOrigin(Align.center);
         toMainMenu.setTransform(true);
