@@ -1,9 +1,7 @@
 package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.utils.Align;
@@ -20,35 +18,47 @@ public class OptionsScreen extends ScreenBeta {
      */
 
     TextButton toMainMenu;
-    Image easy;
-    Image medium;
-    Image hard;
+    easyBtn easyButton;
+    optionsBtn optionButton;
+    mediumBtn mediumButton;
+    hardBtn hardButton;
 
     @Override
     public void initialize() {
 
-        easy = new Image(new Texture("UI/easy.png"));
-        medium = new Image(new Texture("UI/medium.png"));
-        hard = new Image(new Texture("UI/hard.png"));
-        uiTable.background(skin.getDrawable("window-c"));
-        uiStage.addActor(tableContainer);
 
-        uiStage.addActor(tableContainer);
+
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setOrigin(Align.center);
         toMainMenu.setTransform(true);
         toMainMenu.setScale(3);
 
+        easyButton = new easyBtn();
+        easyButton.setScale(0.75f,1);
+        optionButton = new optionsBtn();
+        mediumButton = new mediumBtn();
+        mediumButton.setScale(0.75f,1);
+        hardButton = new hardBtn();
+        hardButton.setScale(0.75f,1);
+
+
+
         setUpButton();
 
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
-        uiTable.add(easy).size(easy.getWidth(), easy.getHeight()).expandX();
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
-        uiTable.add(medium).size(medium.getWidth(), medium.getHeight()).expandX();
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
-        uiTable.add(hard).size(hard.getWidth(), hard.getHeight()).expandX();
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
-        uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight()).expandX();
+        easyButton.setPosition(WIDTH/2-260, HEIGHT-535);
+        optionButton.setPosition(WIDTH/2-260, HEIGHT-135);
+        hardButton.setPosition(WIDTH/2-260, HEIGHT-935);
+        mediumButton.setPosition(WIDTH/2-260, HEIGHT-735);
+
+        mainStage.addActor(easyButton);
+        mainStage.addActor(optionButton);
+        mainStage.addActor(hardButton);
+        mainStage.addActor(mediumButton);
+
+        toMainMenu.setPosition(Gdx.graphics.getWidth()/2-100, 200);
+
+        mainStage.addActor(toMainMenu);
+
 
     }
 
