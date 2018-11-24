@@ -1,7 +1,9 @@
 package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.utils.Align;
@@ -18,10 +20,16 @@ public class OptionsScreen extends ScreenBeta {
      */
 
     TextButton toMainMenu;
+    Image easy;
+    Image medium;
+    Image hard;
 
     @Override
     public void initialize() {
 
+        easy = new Image(new Texture("UI/easy.png"));
+        medium = new Image(new Texture("UI/medium.png"));
+        hard = new Image(new Texture("UI/hard.png"));
         uiTable.background(skin.getDrawable("window-c"));
         uiStage.addActor(tableContainer);
 
@@ -33,6 +41,12 @@ public class OptionsScreen extends ScreenBeta {
 
         setUpButton();
 
+        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
+        uiTable.add(easy).size(easy.getWidth(), easy.getHeight()).expandX();
+        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
+        uiTable.add(medium).size(medium.getWidth(), medium.getHeight()).expandX();
+        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
+        uiTable.add(hard).size(hard.getWidth(), hard.getHeight()).expandX();
         uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
         uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight()).expandX();
 

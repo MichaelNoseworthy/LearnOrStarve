@@ -3,6 +3,7 @@ package com.learnorstarve.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.utils.Align;
@@ -14,10 +15,12 @@ import com.badlogic.gdx.utils.Align;
 public class WinScreen extends ScreenBeta {
 
     TextButton toMainMenu;
+    Image win;
 
     @Override
     public void initialize() {
 
+        win = new Image(new Texture("UI/youwon.png"));
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setOrigin(Align.center);
         toMainMenu.setTransform(true);
@@ -28,7 +31,7 @@ public class WinScreen extends ScreenBeta {
         uiStage.addActor(tableContainer);
 
         setUpButtons();
-
+        uiTable.add(win);
         uiTable.row().padTop(HEIGHT / 2).padBottom(HEIGHT / 25);
         uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight()).expandX();
 
