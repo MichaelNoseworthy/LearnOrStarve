@@ -27,7 +27,8 @@ public class MenuScreen extends ScreenBeta {
     Label label;
 
     /**PARTICLE EFFECTS**/
-    FireParticle fire;
+    BloodParticle blood;
+    BloodParticle blood2;
 
 
     @Override
@@ -84,13 +85,23 @@ public class MenuScreen extends ScreenBeta {
         uiTable.add(exitButton).size(exitButton.getWidth(), exitButton.getHeight()).expandX();
 
         /**PARTICLE EFFECTS**/
-        fire = new FireParticle();
-        fire.centerAtActor(startButton);
-        fire.start();
-        fire.setPosition(WIDTH / 2, HEIGHT / 2);
-        fire.setScale(2.0f);
+        blood = new BloodParticle();
+        blood.centerAtActor(startButton);
+        blood.start();
+        //blood.setPosition(WIDTH / 2, HEIGHT / 2);
+        blood.setPosition(70, (HEIGHT / 2) + 500);
+        blood.setScale(1.0f);
 
-        mainStage.addActor(fire);
+        blood2 = new BloodParticle();
+        blood2.centerAtActor(startButton);
+        blood2.start();
+        //blood.setPosition(WIDTH / 2, HEIGHT / 2);
+        blood2.setPosition((WIDTH / 2) + 200, (HEIGHT / 2) + 500);
+        blood2.setScale(1.0f);
+
+        mainStage.addActor(blood);
+
+        mainStage.addActor(blood2);
     }
 
     public void setUpButtons() {
@@ -173,5 +184,9 @@ public class MenuScreen extends ScreenBeta {
     }
 
     @Override
-    public void update(float dt) {fire.act(dt);}
+    public void update(float dt) {
+
+        //blood.act(dt);
+
+    }
 }
