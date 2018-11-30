@@ -1,6 +1,8 @@
 package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -10,6 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+
+import static com.badlogic.gdx.Input.Keys.R;
 
 /**
  * Created by markapptist on 2018-11-12.
@@ -23,6 +27,26 @@ public class MenuScreen extends ScreenBeta {
     TextButton optionsButton;
     TextButton exitButton;
     Image titlePicture;
+
+
+    //Sound FX & Music
+
+    Sound bounceSound;
+  //  bounceSound()  super ("UI/bounce.mp3.mp3", "UI/");
+    Sound splatSound;
+    Sound enterSound;
+    Sound canonSound;
+   // Sound musicSound;
+
+   /** private Music music_rolemu_-_Peek-Door_Quest;
+
+    music_rolemu_-_Peek-Door_Quest = Gdx.audio.newMusic(Gdx.files.internal("rolemu_-_Peek-Door_Quest.mp3"));
+    music_rolemu_-_Peek-Door_Quest.setLooping(true);
+    music_rolemu_-_Peek-Door_Quest.play(); **/ 
+
+
+
+
 
 
     Label label;
@@ -107,6 +131,8 @@ public class MenuScreen extends ScreenBeta {
         mainStage.addActor(blood);
 
         mainStage.addActor(blood2);
+
+        //SOUND EFFECTS
     }
 
     public void setUpButtons() {
@@ -120,6 +146,7 @@ public class MenuScreen extends ScreenBeta {
                     MyGame.gameScreen = new GameScreen();
                 }
                 MyGame.setActiveScreen(MyGame.gameScreen);
+
             }
         });
         helpButton.addListener(new ActorGestureListener() {
