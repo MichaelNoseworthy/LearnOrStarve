@@ -1,6 +1,7 @@
 package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -47,9 +48,6 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
     @Override
     public void initialize() {
-//        cannon = new Cannon();
-//        Texture holding = new Texture("UI/cannon.png");
-//        cannon.setTexture(holding);
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setScale(5);
         toWinScreen = new TextButton("Win Screen", skin.get(("default"), TextButton.TextButtonStyle.class));
@@ -78,60 +76,46 @@ public class GameScreenTestingPlace extends ScreenBeta {
         uiTable.add(toWinScreen).size(toWinScreen.getWidth(),toWinScreen.getHeight());
         uiTable.add(toLoseScreen).size(toLoseScreen.getWidth(),toLoseScreen.getHeight());
 
-        apple = new Apple();
-            apple.setScale(0.5f);
+        apple = new Apple(10, 600, 100,100);
+            //apple.setScale(1.5f);
 
-        banana = new Banana();
-            banana.setScale(0.15f);
+        banana = new Banana(300, 500, 120,100);
+            //banana.setScale(0.15f);
 
-        blackberry = new Blackberry();
-            blackberry.setScale(0.4f);
+        blackberry = new Blackberry(200, 600, 150,150);
+            //blackberry.setScale(0.4f);
 
-        cherry = new Cherry();
-            cherry.setScale(0.2f);
+        cherry = new Cherry(450, 900, 100,100);
+            //cherry.setScale(0.2f);
 
-        corn = new Corn();
-            corn.setScale(0.25f);
+        corn = new Corn(500, 600, 100,100);
+            //corn.setScale(0.25f);
 
-        jalapeno = new Jalapeno();
+        //jalapeno = new Jalapeno(300, 600, 100,100);
 
-        lemon = new Lemon();
-            lemon.setScale(0.2f);
+        lemon = new Lemon(200, 400, 100,100);
+            //lemon.setScale(0.2f);
 
-        pea = new Pea();
-            pea.setScale(0.5f);
+        pea = new Pea(100, 700, 100,100);
+            //pea.setScale(0.5f);
 
-        pepper = new Pepper();
-            pepper.setScale(0.9f);
+        pepper = new Pepper(150, 900, 100,100);
+            //pepper.setScale(0.9f);
 
-        pineapple = new Pineapple();
-            pineapple.setScale(0.2f);
+        pineapple = new Pineapple(300, 900, 100,200);
+            //pineapple.setScale(0.2f);
 
-        pumpkin = new Pumpkin();
-            pumpkin.setScale(0.8f);
+        pumpkin = new Pumpkin(400, 700, 100,100);
+            //pumpkin.setScale(0.8f);
 
-        tomato = new Tomato();
-            tomato.setScale(0.2f);
+        tomato = new Tomato(100, 800, 100,100);
+            //tomato.setScale(0.2f);
 
-        watermelon = new Watermelon();
-            watermelon.setScale(0.45f);
+        watermelon = new Watermelon(100, 500, 100,100);
+            //watermelon.setScale(0.45f);
 
-        //apple.centerAtActor(startButton);
-        //apple.start();
-        //apple.setPosition(WIDTH / 2, HEIGHT / 2);
-        apple.setPosition(10, 600);
-        banana.setPosition(10, 500);
-        blackberry.setPosition(100, 600);
-        cherry.setPosition(150, 600);
-        corn.setPosition(250, 600);
-        lemon.setPosition(200, 400);
-        pea.setPosition(100, 700);
-        pepper.setPosition(150, 900);
-        pineapple.setPosition(100, 700);
-        pumpkin.setPosition(400, 700);
-        tomato.setPosition(100, 800);
-        watermelon.setPosition(100, 500);
-
+        apple.getRotation();
+        //apple.onClick();  //broken
 
         mainStage.addActor(apple);
         mainStage.addActor(banana);
@@ -151,6 +135,7 @@ public class GameScreenTestingPlace extends ScreenBeta {
     @Override
     public void update(float dt) {
 
+        apple.moveBy(5*dt, 5*dt);
     }
 
     public void setUpButtons() {
