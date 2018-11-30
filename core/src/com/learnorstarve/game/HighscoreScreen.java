@@ -1,7 +1,9 @@
 package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
@@ -19,15 +21,35 @@ public class HighscoreScreen extends ScreenBeta {
      */
 
     TextButton toMainMenu;
-    highscoreBtn highscoreButton;
+    Image highscore;
     Label label1;
+    Label HighscoreTable[];
+    String HighscoreArray[];
 
     @Override
     public void initialize() {
 
+        highscore = new Image(new Texture("UI/highscores.png"));
+        uiStage.addActor(tableContainer);
 
-
-        highscoreButton = new highscoreBtn();
+        HighscoreArray = new String[]{
+                "King ","30",
+                "Queen ","25",
+                "Princess ","20",
+                "Prince ","15",
+                "Knight ","10",
+                "Archer ","5",
+                "Peasant ","1",
+                "Peasant ","1",
+                "Peasant ","1",
+                "Peasant ","1"};
+        HighscoreTable = new Label[10];
+        for(int i = 0; i < HighscoreTable.length; i++)
+        {
+            HighscoreTable[i] = new Label(Integer.toString(i+1)+ HighscoreArray[2*i]+HighscoreArray[2*i+1],labelStyle);
+            HighscoreTable[i].setOrigin(Align.center);
+            HighscoreTable[i].setFontScale(2);
+        };
 
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setOrigin(Align.center);
@@ -43,13 +65,17 @@ public class HighscoreScreen extends ScreenBeta {
         setUpButton();
 
 
-        toMainMenu.setPosition(Gdx.graphics.getWidth()/2-100, 200);
+        uiTable.add(highscore).size(highscore.getWidth(),highscore.getHeight());
+        uiTable.row().pad(HEIGHT/50);
+        //highscoreButton.setPosition(WIDTH/2-260, HEIGHT-135);
 
-        mainStage.addActor(toMainMenu);
+        //uiTable.add(label1).size(label1.getWidth(), label1.getHeight());        uiTable.row().padTop(HEIGHT / 25).padBottom(HEIGHT/25);
+        for (int i = 0; i < HighscoreTable.length; i++) {
+            uiTable.add(HighscoreTable[i]).size(HighscoreTable[i].getPrefWidth(), HighscoreTable[i].getPrefHeight());
+            uiTable.row().padTop(HEIGHT / 100).padBottom(HEIGHT / 100);
+        }
 
-        highscoreButton.setPosition(WIDTH/2-260, HEIGHT-135);
-        mainStage.addActor(highscoreButton);
-        mainStage.addActor(label1);
+        uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight());
 
     }
 
@@ -81,7 +107,9 @@ public class HighscoreScreen extends ScreenBeta {
 
     }
 
-
+    public void updateTable(String newA[]) {
+        HighscoreArray = newA;
+    }
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
