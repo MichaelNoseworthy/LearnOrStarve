@@ -155,9 +155,7 @@ public class MenuScreen extends ScreenBeta {
                 if(MyGame.highscoreScreen == null) {
                     MyGame.highscoreScreen = new HighscoreScreen();
                 }
-                highscoreSorter.checkList(highscoreSorter.scores,highscoreSorter.names,10,101,textField.getText());
                 MyGame.setActiveScreen(MyGame.highscoreScreen);
-
             }
         });
         exitButton.addListener(new ActorGestureListener() {

@@ -18,11 +18,9 @@ public class WinScreen extends ScreenBeta {
     TextButton toMainMenu;
     TextField textField;
     Image win;
-    public HighscoreSorter highscoreSorter;
+    public HighscoreSorter highscoreSorter = MyGame.highscoreSorter;
     @Override
     public void initialize() {
-
-        highscoreSorter = new HighscoreSorter();
 
         win = new Image(new Texture("UI/youwon.png"));
 
@@ -38,6 +36,7 @@ public class WinScreen extends ScreenBeta {
         setUpButtons();
 
         textField = new TextField("", skin.get(("default"),TextField.TextFieldStyle.class));
+        textField.scaleBy(3);
 
         win.setOrigin(Align.center);
         win.setPosition((Gdx.graphics.getWidth()/2) - win.getWidth()/2,
@@ -66,8 +65,8 @@ public class WinScreen extends ScreenBeta {
                     MyGame.menuScreen = new MenuScreen();
                 }
                 MyGame.setActiveScreen(MyGame.menuScreen);
-                highscoreSorter.checkList(highscoreSorter.scores,highscoreSorter.names,10,101,textField.getText());
-                textField.clear();
+                highscoreSorter.checkList(MyGame.HighscoreArray,MyGame.HighscoreArray.length,101,textField.getText());
+                textField.setText("");
             }
         });
     }

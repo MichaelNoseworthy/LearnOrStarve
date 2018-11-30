@@ -24,29 +24,20 @@ public class HighscoreScreen extends ScreenBeta {
     Image highscore;
     Label label1;
     Label HighscoreTable[];
-    String HighscoreArray[];
+    String HighscoreArray[] = MyGame.HighscoreArray;
 
     @Override
     public void initialize() {
 
+        HighscoreArray = MyGame.HighscoreArray;
         highscore = new Image(new Texture("UI/highscores.png"));
         uiStage.addActor(tableContainer);
 
-        HighscoreArray = new String[]{
-                "King ","30",
-                "Queen ","25",
-                "Princess ","20",
-                "Prince ","15",
-                "Knight ","10",
-                "Archer ","5",
-                "Peasant ","1",
-                "Peasant ","1",
-                "Peasant ","1",
-                "Peasant ","1"};
         HighscoreTable = new Label[10];
         for(int i = 0; i < HighscoreTable.length; i++)
         {
-            HighscoreTable[i] = new Label(Integer.toString(i+1)+ HighscoreArray[2*i]+HighscoreArray[2*i+1],labelStyle);
+            HighscoreTable[i] = new Label("#"+Integer.toString(i+1)+ ": "+HighscoreArray[2*i]+HighscoreArray[2*i+1],labelStyle);
+            Gdx.app.log("Attempt "+i,"Failed.");
             HighscoreTable[i].setOrigin(Align.center);
             HighscoreTable[i].setFontScale(2);
         };

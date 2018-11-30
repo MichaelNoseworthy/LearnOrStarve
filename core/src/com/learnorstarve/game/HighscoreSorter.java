@@ -8,30 +8,46 @@ package com.learnorstarve.game;
 
 public class HighscoreSorter  {
 
-    public String HighscoreArray[] = new String[]{
-        "King ", "30",
-        "Queen ", "25",
-        "Princess ", "20",
-        "Prince ", "15",
-        "Knight ", "10",
-        "Archer ", "5",
-        "Peasant ", "1",
-        "Peasant ", "1",
-        "Peasant ", "1",
-        "Peasant ", "1"};
-
-    public int scores[] = new int[10];
+    String array[] = MyGame.HighscoreArray;
     public String names[] = new String[10];
 
-    public void initialize() {
-        for (int i = 0; i < scores.length; i++) {
-            names[i] = HighscoreArray[2 * i];
-            scores[i] = Integer.getInteger(HighscoreArray[2 * i - 1]);
+    public static void checkList(String arrString[], int n, int key, String myname) {
+        int scores[] = new int[10];
+        String names[] = new String[10];
+        for (int i = 0; i < (arrString.length / 2); i++) {
+            names[i] = arrString[2 * i];
+            scores[i] = Integer.parseInt(arrString[2 * i + 1]);
         }
-        insertionSort(scores,names,10);
+        int k = key;
+        String name = myname;
+        boolean ifFound = false;
+
+        for (int i = 0; i < n-1; i++)
+        {
+            if (scores[i] <= k)
+            {
+                ifFound = true;
+                break;
+            }
+        }
+
+        if (ifFound)
+        {
+            for (int i = 9; i > 0; i--)
+            {
+                scores[i] = scores[i - 1];
+                names[i] = names[i - 1];
+            }
+
+            scores[0] = k;
+            names[0] = name;
+            insertionSort(scores,names,10);
+
+        }
+
     }
 
-    void insertionSort(int arrInt[], String arrString[], int n)
+    static void insertionSort(int arrInt[], String arrString[], int n)
     {
         int i, key, j;
         String keys;
@@ -53,6 +69,7 @@ public class HighscoreSorter  {
             }
             arrInt[j + 1] = key;
             arrString[j + 1] = keys;
+
         }
 
 
@@ -63,6 +80,12 @@ public class HighscoreSorter  {
             String temporary2 = arrString[k];
             arrString[k] = arrString[(arraylength - 1) - k];
             arrString[(arraylength - 1) - k] = temporary2;
+        }
+
+        for(int q = 0; q < arrInt.length; q++)
+        {
+            MyGame.HighscoreArray[2 * q] = arrString[q];
+            MyGame.HighscoreArray[2*q+1] = Integer.toString(arrInt[q]);
         }
     }
 
