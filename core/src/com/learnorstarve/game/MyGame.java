@@ -20,6 +20,7 @@ public class MyGame extends GameBeta {
     static HighscoreScreen highscoreScreen;
     static LoseScreen loseScreen;
     static WinScreen winScreen;
+    static GameScreenTestingPlace gameScreenTestingPlace;
 
     boolean paused = false;
 
@@ -30,7 +31,10 @@ public class MyGame extends GameBeta {
 
         menuScreen = new MenuScreen();
 
-        setScreen(menuScreen);
+        gameScreenTestingPlace = new GameScreenTestingPlace();
+
+        //setScreen(menuScreen);
+        setScreen(gameScreenTestingPlace);
     }
 
 }
