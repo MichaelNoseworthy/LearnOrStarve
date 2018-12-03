@@ -2,6 +2,7 @@ package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -11,6 +12,7 @@ import com.learnorstarve.game.Food.Banana;
 import com.learnorstarve.game.Food.Blackberry;
 import com.learnorstarve.game.Food.Cherry;
 import com.learnorstarve.game.Food.Corn;
+import com.learnorstarve.game.Food.Food;
 import com.learnorstarve.game.Food.Jalapeno;
 import com.learnorstarve.game.Food.Lemon;
 import com.learnorstarve.game.Food.Pea;
@@ -19,6 +21,10 @@ import com.learnorstarve.game.Food.Pineapple;
 import com.learnorstarve.game.Food.Pumpkin;
 import com.learnorstarve.game.Food.Tomato;
 import com.learnorstarve.game.Food.Watermelon;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class GameScreenTestingPlace extends ScreenBeta {
@@ -32,28 +38,38 @@ public class GameScreenTestingPlace extends ScreenBeta {
     ActorBeta foreground;
     ActorBeta background;
 
-    Apple apple;
-    Banana banana;
-    Blackberry blackberry;
-    Cherry cherry;
-    Corn corn;
-    Jalapeno jalapeno;
-    Lemon lemon;
-    Pea pea;
-    Pepper pepper;
-    Pineapple pineapple;
-    Pumpkin pumpkin;
-    Tomato tomato;
-    Watermelon watermelon;
+    ArrayList<Foods> foods;
+
+    float resetTimer;
+
+    Foods apple;
+    Foods banana;
+    Foods blackberry;
+    Foods cherry;
+    Foods corn;
+    Foods jalapeno;
+    Foods lemon;
+    Foods pea;
+    Foods pepper;
+    Foods pineapple;
+    Foods pumpkin;
+    Foods tomato;
+    Foods watermelon;
 
     @Override
     public void initialize() {
+
+        resetTimer = 0;
+
+        Timer timer = new Timer();
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setScale(5);
         toWinScreen = new TextButton("Win Screen", skin.get(("default"), TextButton.TextButtonStyle.class));
         toWinScreen.setScale(5);
         toLoseScreen = new TextButton("Lose Screen", skin.get(("default"), TextButton.TextButtonStyle.class));
         toLoseScreen.setScale(5);
+
+        foods = new ArrayList<Foods>();
 
         ActorBeta.setWorldBounds(WIDTH, HEIGHT);
 
@@ -76,66 +92,106 @@ public class GameScreenTestingPlace extends ScreenBeta {
         uiTable.add(toWinScreen).size(toWinScreen.getWidth(),toWinScreen.getHeight());
         uiTable.add(toLoseScreen).size(toLoseScreen.getWidth(),toLoseScreen.getHeight());
 
-        apple = new Apple(10, 600, 100,100);
+        //apple = new Apple(10, 600, 100,100);
             //apple.setScale(1.5f);
 
-        banana = new Banana(300, 500, 120,100);
-            //banana.setScale(0.15f);
+      //  apple2 = new Foods(0,300, 600, 10,10);
+        apple = new Foods(0);
+        banana = new Foods(1);
+        blackberry = new Foods(2);
+        cherry = new Foods(3);
+        corn = new Foods(4);
+        jalapeno = new Foods(5);
+        lemon = new Foods(6);
+        pea = new Foods(7);
+        pepper = new Foods(8);
+        pineapple = new Foods(9);
 
-        blackberry = new Blackberry(200, 600, 150,150);
-            //blackberry.setScale(0.4f);
+        foods.add(apple);
+        foods.add(banana);
+        foods.add(blackberry);
+        foods.add(cherry);
+        foods.add(corn);
+        foods.add(jalapeno);
+        foods.add(lemon);
+        foods.add(pea);
+        foods.add(pepper);
+        foods.add(pineapple);
 
-        cherry = new Cherry(450, 900, 100,100);
-            //cherry.setScale(0.2f);
+        mainStage.addActor(foods.get(0));
+        mainStage.addActor(foods.get(1));
+        mainStage.addActor(foods.get(2));
+        mainStage.addActor(foods.get(3));
+        mainStage.addActor(foods.get(4));
+        mainStage.addActor(foods.get(5));
+        mainStage.addActor(foods.get(6));
+        mainStage.addActor(foods.get(7));
+        mainStage.addActor(foods.get(8));
+        mainStage.addActor(foods.get(9));
+        //mainStage.addActor(foods.get(10));
 
-        corn = new Corn(500, 600, 100,100);
-            //corn.setScale(0.25f);
+        timer.schedule(new TimerTask(){
+            @Override
+            public void run() {
+                //foods.get(0).setPosition(0,0);
+                resetTimer = 0;
+            }
+        },0,1000*3);
 
-        //jalapeno = new Jalapeno(300, 600, 100,100);
-
-        lemon = new Lemon(200, 400, 100,100);
-            //lemon.setScale(0.2f);
-
-        pea = new Pea(100, 700, 100,100);
-            //pea.setScale(0.5f);
-
-        pepper = new Pepper(150, 900, 100,100);
-            //pepper.setScale(0.9f);
-
-        pineapple = new Pineapple(300, 900, 100,200);
-            //pineapple.setScale(0.2f);
-
-        pumpkin = new Pumpkin(400, 700, 100,100);
-            //pumpkin.setScale(0.8f);
-
-        tomato = new Tomato(100, 800, 100,100);
-            //tomato.setScale(0.2f);
-
-        watermelon = new Watermelon(100, 500, 100,100);
-            //watermelon.setScale(0.45f);
-
-        apple.getRotation();
-        //apple.onClick();  //broken
-
-        mainStage.addActor(apple);
-        mainStage.addActor(banana);
-        mainStage.addActor(blackberry);
-        mainStage.addActor(cherry);
-        mainStage.addActor(corn);
-        mainStage.addActor(lemon);
-        mainStage.addActor(pea);
-        mainStage.addActor(pepper);
-        mainStage.addActor(pineapple);
-        mainStage.addActor(pumpkin);
-        mainStage.addActor(tomato);
-        mainStage.addActor(watermelon);
 
     }
 
     @Override
     public void update(float dt) {
+        resetTimer = resetTimer +dt;
+//        apple.moveBy(5*dt, 5*dt);
 
-        apple.moveBy(5*dt, 5*dt);
+
+        //foods.get(0).moveBy(15,25);
+
+        foods.get(0).act(dt);
+
+        foods.get(1).act(dt);
+
+        if (resetTimer > 3) {
+            int random = MathUtils.random(6);
+            Gdx.app.log("random", String.valueOf(random));
+            switch (random) {
+                case 0:
+                   foods.get(0).setPosition(0,0);
+//                   foods.get(0).moveBy(15,25);
+                   break;
+
+                case 1:
+                    foods.get(1).setPosition(0,0);
+  //                  foods.get(1).moveBy(15,25);
+
+                    break;
+                case 2:
+                    foods.get(2).setPosition(0,0);
+
+                    break;
+                case 3:
+                    foods.get(3).setPosition(0,0);
+
+                    break;
+                case 4:
+                    foods.get(4).moveBy(15,25);
+                    break;
+                case 5:
+                    foods.get(5).moveBy(15,25);
+                    break;
+
+                case 6:
+                    foods.get(6).setPosition(0,0);
+                    break;
+
+                default:
+                    foods.get(7).setPosition(0,0);
+                    foods.get(7).moveBy(15,25);
+                    break;
+            }
+        }
     }
 
     public void setUpButtons() {

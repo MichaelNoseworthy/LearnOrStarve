@@ -10,8 +10,8 @@ public class Food extends ActorBeta {
 
         loadTexture("box.png");
 
-
     }
+
     @Override
     public void act(float dt) {
         super.act(dt);
