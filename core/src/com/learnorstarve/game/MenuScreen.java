@@ -4,13 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.learnorstarve.game.MyGame;
 
 /**
  * Created by markapptist on 2018-11-12.
@@ -23,6 +22,8 @@ public class MenuScreen extends ScreenBeta {
     TextButton highscoreButton;
     TextButton optionsButton;
     TextButton exitButton;
+    Image titlePicture;
+
 
     Label label;
 
@@ -34,6 +35,7 @@ public class MenuScreen extends ScreenBeta {
     @Override
     public void initialize() {
 
+        titlePicture = new Image(new Texture("UI/logo.png"));
         uiTable.background(skin.getDrawable("window-c"));
 
         uiStage.addActor(tableContainer);
@@ -65,23 +67,26 @@ public class MenuScreen extends ScreenBeta {
 
         setUpButtons();
 
-        label = new Label("LABEL", labelStyle);
+        label = new Label("LEARN OR STARVE", labelStyle);
 
         //Add to TABLE
 
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
+        //uiTable.add(label).size(label.getPrefWidth(),label.getPrefHeight());
+
+        uiTable.add(titlePicture).size(titlePicture.getWidth(),titlePicture.getHeight());
+        uiTable.row().padTop(HEIGHT / 25).padBottom(HEIGHT / 25);
         uiTable.add(startButton).size(startButton.getWidth(), startButton.getHeight()).expandX();
 
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
+        uiTable.row().padTop(HEIGHT / 25).padBottom(HEIGHT / 25);
         uiTable.add(helpButton).size(helpButton.getWidth(), helpButton.getHeight()).expandX();
 
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
+        uiTable.row().padTop(HEIGHT / 25).padBottom(HEIGHT / 25);
         uiTable.add(highscoreButton).size(highscoreButton.getWidth(), highscoreButton.getHeight()).expandX();
 
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
+        uiTable.row().padTop(HEIGHT / 25).padBottom(HEIGHT / 25);
         uiTable.add(optionsButton).size(optionsButton.getWidth(), optionsButton.getHeight()).expandX();
 
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
+        uiTable.row().padTop(HEIGHT / 25).padBottom(HEIGHT / 25);
         uiTable.add(exitButton).size(exitButton.getWidth(), exitButton.getHeight()).expandX();
 
         /**PARTICLE EFFECTS**/
@@ -89,14 +94,14 @@ public class MenuScreen extends ScreenBeta {
         blood.centerAtActor(startButton);
         blood.start();
         //blood.setPosition(WIDTH / 2, HEIGHT / 2);
-        blood.setPosition(70, (HEIGHT / 2) + 500);
+        blood.setPosition(70, (HEIGHT / 2) + 100);
         blood.setScale(1.0f);
 
         blood2 = new BloodParticle();
         blood2.centerAtActor(startButton);
         blood2.start();
         //blood.setPosition(WIDTH / 2, HEIGHT / 2);
-        blood2.setPosition((WIDTH / 2) + 200, (HEIGHT / 2) + 500);
+        blood2.setPosition((WIDTH / 2) + 100, (HEIGHT / 2) + 100);
         blood2.setScale(1.0f);
 
         mainStage.addActor(blood);

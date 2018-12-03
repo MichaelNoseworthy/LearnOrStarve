@@ -21,7 +21,7 @@ public class InstructionsScreen extends ScreenBeta {
     @Override
     public void initialize() {
 
-        uiTable.background(skin.getDrawable("window-c"));
+        //uiTable.background(skin.getDrawable("window-c"));
         uiStage.addActor(tableContainer);
 
         label1 = new Label("LABEL", labelStyle);
