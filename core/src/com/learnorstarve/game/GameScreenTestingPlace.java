@@ -143,15 +143,8 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
     @Override
     public void update(float dt) {
+
         resetTimer = resetTimer +dt;
-//        apple.moveBy(5*dt, 5*dt);
-
-
-        //foods.get(0).moveBy(15,25);
-
-        foods.get(0).act(dt);
-
-        foods.get(1).act(dt);
 
         if (resetTimer > 3) {
             int random = MathUtils.random(6);
@@ -159,12 +152,11 @@ public class GameScreenTestingPlace extends ScreenBeta {
             switch (random) {
                 case 0:
                    foods.get(0).setPosition(0,0);
-//                   foods.get(0).moveBy(15,25);
+
                    break;
 
                 case 1:
                     foods.get(1).setPosition(0,0);
-  //                  foods.get(1).moveBy(15,25);
 
                     break;
                 case 2:
@@ -176,10 +168,10 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
                     break;
                 case 4:
-                    foods.get(4).moveBy(15,25);
+                    foods.get(4).setPosition(0,0);
                     break;
                 case 5:
-                    foods.get(5).moveBy(15,25);
+                    foods.get(5).setPosition(0,0);
                     break;
 
                 case 6:
@@ -188,7 +180,7 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
                 default:
                     foods.get(7).setPosition(0,0);
-                    foods.get(7).moveBy(15,25);
+
                     break;
             }
         }
