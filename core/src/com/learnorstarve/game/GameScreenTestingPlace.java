@@ -1,6 +1,7 @@
 package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -38,6 +39,8 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
     int max = 11; // max words
     int min = 0; //0 point for words
+
+    Sound cannonSound = MyGame.cannonSound;
 
     Label label1;
 
@@ -218,41 +221,52 @@ String words(int word)
                 case 0:
                    foods.get(0).setPosition(0,0);
                     label1.setText(words(0));
+                    cannonSound.play();
 
                    break;
 
                 case 1:
                     foods.get(1).setPosition(0,0);
                     label1.setText(words(1));
+                    cannonSound.play();
 
                     break;
                 case 2:
                     foods.get(2).setPosition(0,0);
                     label1.setText(words(2));
+                    cannonSound.play();
 
                     break;
                 case 3:
                     foods.get(3).setPosition(0,0);
                     label1.setText(words(3));
+                    cannonSound.play();
 
                     break;
                 case 4:
                     foods.get(4).setPosition(0,0);
                     label1.setText(words(4));
+                    cannonSound.play();
+
                     break;
                 case 5:
                     foods.get(5).setPosition(0,0);
                     label1.setText(words(5));
+                    cannonSound.play();
                     break;
 
                 case 6:
                     foods.get(6).setPosition(0,0);
                     label1.setText(words(6));
+                    cannonSound.play();
+
                     break;
 
                 default:
                     foods.get(7).setPosition(0,0);
                     label1.setText(words(7));
+                    cannonSound.play();
+
                     break;
             }
         }
