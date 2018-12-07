@@ -29,6 +29,8 @@ public class MyGame extends GameBeta {
     static Sound cannonSound;
     static Music defaultBackgroundMusic;
     static Sound splatSound;
+  
+    static GameScreenTestingPlace gameScreenTestingPlace;
 
     boolean paused = false;
 
@@ -46,7 +48,10 @@ public class MyGame extends GameBeta {
         defaultBackgroundMusic.setLooping(true);
         menuScreen = new MenuScreen();
 
-        setScreen(menuScreen);
+        gameScreenTestingPlace = new GameScreenTestingPlace();
+
+        //setScreen(menuScreen);
+        setScreen(gameScreenTestingPlace);
     }
 
 }
