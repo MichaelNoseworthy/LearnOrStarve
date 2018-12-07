@@ -28,27 +28,7 @@ public class MenuScreen extends ScreenBeta {
     TextButton exitButton;
     Image titlePicture;
 
-
-    //Sound FX & Music
-
-    Sound bounceSound;
-  //  bounceSound()  super ("UI/bounce.mp3.mp3", "UI/");
-    Sound splatSound;
-    Sound enterSound;
-    Sound canonSound;
-   // Sound musicSound;
-
-   /** private Music music_rolemu_-_Peek-Door_Quest;
-
-    music_rolemu_-_Peek-Door_Quest = Gdx.audio.newMusic(Gdx.files.internal("rolemu_-_Peek-Door_Quest.mp3"));
-    music_rolemu_-_Peek-Door_Quest.setLooping(true);
-    music_rolemu_-_Peek-Door_Quest.play(); **/ 
-
-
-
-
-
-
+    Sound enterSound = MyGame.enterSound;
     Label label;
 
     /**PARTICLE EFFECTS**/
@@ -141,6 +121,7 @@ public class MenuScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
 
                 if(MyGame.gameScreen == null) {
                     MyGame.gameScreen = new GameScreen();
@@ -153,6 +134,7 @@ public class MenuScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
 
                 Gdx.app.log("Yay?","+1");
                 if(MyGame.instructionsScreen == null) {
@@ -165,6 +147,7 @@ public class MenuScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
 
                 Gdx.app.log("Yay?","+1");
                 if(MyGame.optionsScreen == null) {
@@ -177,6 +160,7 @@ public class MenuScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
 
                 Gdx.app.log("Yay?","+1");
                 if(MyGame.highscoreScreen == null) {
@@ -189,6 +173,8 @@ public class MenuScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
+                MyGame.defaultBackgroundMusic.stop();
                 System.exit(0);
             }
         });
