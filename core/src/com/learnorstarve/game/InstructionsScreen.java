@@ -45,7 +45,7 @@ public class InstructionsScreen extends ScreenBeta {
         uiTable.row().pad(HEIGHT/5);
         uiTable.add(label1).size(label1.getWidth(),label1.getHeight());
         uiTable.row().pad(HEIGHT/25);
-        uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight()).expandX();
+        uiTable.add(toMainMenu).size(Math.min(toMainMenu.getWidth(),Gdx.graphics.getWidth()), Math.min(toMainMenu.getWidth(),Gdx.graphics.getHeight() * 0.8f)).expandX();
 
     }
 

@@ -25,6 +25,7 @@ public class MyGame extends GameBeta {
     static LoseScreen loseScreen;
     static WinScreen winScreen;
     public static HighscoreSorter highscoreSorter;
+    public static int difficulty = 1;
 
     public static String HighscoreArray[] = new String[]{
             "King ", "30",

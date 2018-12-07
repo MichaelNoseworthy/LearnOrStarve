@@ -2,9 +2,15 @@ package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.learnorstarve.game.MyGame;
 import com.learnorstarve.game.ScreenBeta;
@@ -19,15 +25,21 @@ public class OptionsScreen extends ScreenBeta {
      */
 
     TextButton toMainMenu;
-    easyBtn easyButton;
+    Drawable easy;
+    Drawable medium;
+    Drawable hard;
+    ImageButton easyButton;
     optionsBtn optionButton;
-    mediumBtn mediumButton;
-    hardBtn hardButton;
+    ImageButton mediumButton;
+    ImageButton hardButton;
     Sound enterSound = MyGame.enterSound;
 
     @Override
     public void initialize() {
 
+        easy = new TextureRegionDrawable(new TextureRegion(new Texture("UI/easy.png")));
+        medium = new TextureRegionDrawable(new TextureRegion(new Texture("UI/medium.png")));
+        hard = new TextureRegionDrawable(new TextureRegion(new Texture("UI/hard.png")));
 
 
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
@@ -35,12 +47,12 @@ public class OptionsScreen extends ScreenBeta {
         toMainMenu.setTransform(true);
         toMainMenu.setScale(3);
 
-        easyButton = new easyBtn();
+        easyButton = new ImageButton(easy);
         easyButton.setScale(0.75f,1);
         optionButton = new optionsBtn();
-        mediumButton = new mediumBtn();
+        mediumButton = new ImageButton(medium);
         mediumButton.setScale(0.75f,1);
-        hardButton = new hardBtn();
+        hardButton = new ImageButton(hard);
         hardButton.setScale(0.75f,1);
 
 
@@ -69,7 +81,6 @@ public class OptionsScreen extends ScreenBeta {
         toMainMenu.addListener(new ActorGestureListener() {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                Gdx.app.log("Yay?","+1");
 
                 enterSound.play();
                 super.touchDown(event, x, y, pointer, button);
@@ -79,6 +90,38 @@ public class OptionsScreen extends ScreenBeta {
                 MyGame.setActiveScreen(MyGame.menuScreen);
             }
         });
+
+        easyButton.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                enterSound.play();
+                Gdx.app.log("Difficulty","1");
+
+                super.touchDown(event, x, y, pointer, button);
+                MyGame.difficulty = 1;
+            }
+        });
+
+        mediumButton.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                enterSound.play();
+                Gdx.app.log("Difficulty","2");
+                super.touchDown(event, x, y, pointer, button);
+                MyGame.difficulty = 2;
+            }
+        });
+
+        hardButton.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                enterSound.play();
+                Gdx.app.log("Difficulty","3");
+                super.touchDown(event, x, y, pointer, button);
+                MyGame.difficulty = 3;
+            }
+        });
+
     }
 
     @Override
