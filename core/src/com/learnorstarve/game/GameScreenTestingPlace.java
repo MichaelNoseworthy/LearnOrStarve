@@ -104,9 +104,9 @@ public class GameScreenTestingPlace extends ScreenBeta {
         uiStage.addActor(tableContainer);
 
         setUpButtons();
-        //cannon = new Cannon(0,0, 100,100)
-        //cannon.setPosition(0, 0);
-        //mainStage.addActor(cannon);
+        cannon = new Cannon(0,0, 100,100);
+        cannon.setPosition(0, 0);
+        mainStage.addActor(cannon);
 
 
 
@@ -163,17 +163,19 @@ public class GameScreenTestingPlace extends ScreenBeta {
             }
         },0,1000*3);
 
-        //HandlingButtons();
+
 
 
     }
+
 /*
-    void HandlingButtons(){
-        foods.get(0).
-
-    }
+    public void HandlingButtons(){
+        foods.get(0).addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchDown(event, x, y, pointer, button);
+            }
 */
-
 String words(int word)
 {
     if (word == 0)
@@ -218,18 +220,15 @@ String words(int word)
                 case 0:
                    foods.get(0).setPosition(0,0);
                     label1.setText(words(0));
-
                    break;
 
                 case 1:
                     foods.get(1).setPosition(0,0);
                     label1.setText(words(1));
-
                     break;
                 case 2:
                     foods.get(2).setPosition(0,0);
                     label1.setText(words(2));
-
                     break;
                 case 3:
                     foods.get(3).setPosition(0,0);
@@ -256,6 +255,8 @@ String words(int word)
                     break;
             }
         }
+
+        //HandlingButtons();
     }
 
     public void setUpButtons() {
