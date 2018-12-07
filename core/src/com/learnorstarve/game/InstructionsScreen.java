@@ -43,7 +43,7 @@ public class InstructionsScreen extends ScreenBeta {
         instrBtn = new instructionsBtn();
         uiTable.add(instrBtn).size(instrBtn.getWidth(), instrBtn.getHeight()).expandX();
         uiTable.row().pad(HEIGHT/5);
-        uiTable.add(label1).size(label1.getWidth(),label1.getHeight());
+        uiTable.add(label1).size(Math.min(label1.getWidth(),Gdx.graphics.getWidth()),Math.min(label1.getWidth(),Gdx.graphics.getHeight() * 0.8f));
         uiTable.row().pad(HEIGHT/25);
         uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight()).expandX();
 

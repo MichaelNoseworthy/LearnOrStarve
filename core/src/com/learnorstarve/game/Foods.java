@@ -11,6 +11,9 @@ public class Foods extends ActorBeta {
     private float FoodSpeedX = 3;
     private float FoodSpeedY = 10;
 
+    private int BaseSpeedX = 3;
+    private int BaseSpeedY = 10;
+    private int difficultyMod = 1;
     private Vector2 velocity;
     private Vector2 acceleration;
 
@@ -221,6 +224,7 @@ public class Foods extends ActorBeta {
             boundingCircle = new Circle();
             this.setBoundaryRectangle();
         }
+        setFoodSpeed(MyGame.difficulty);
     }
 
     @Override
@@ -240,10 +244,14 @@ public class Foods extends ActorBeta {
         return FoodSpeedY;
     }
 
-    public void setFoodSpeed(float SpeedX, float SpeedY)
+    public void setFoodSpeed(int a)
     {
-        FoodSpeedX = SpeedX;
-        FoodSpeedY = SpeedY;
+        if(a != difficultyMod)
+        {
+            difficultyMod = a;
+            FoodSpeedX = a * BaseSpeedX;
+            FoodSpeedY = a * BaseSpeedY;
+        }
     }
 
 }

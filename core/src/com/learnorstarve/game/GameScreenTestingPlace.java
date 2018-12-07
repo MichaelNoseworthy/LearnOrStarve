@@ -210,7 +210,10 @@ String words(int word)
 
     @Override
     public void update(float dt) {
-
+        for(int i = 0; i < 10; i++)//How many foods?
+        {
+            foods.get(i).setFoodSpeed(MyGame.difficulty);
+        }
         resetTimer = resetTimer +dt;
 
         if (resetTimer > 3) {
@@ -255,6 +258,7 @@ String words(int word)
                     break;
             }
         }
+
 
         //HandlingButtons();
     }
