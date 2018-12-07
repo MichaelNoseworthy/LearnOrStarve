@@ -24,7 +24,7 @@ public class Foods extends ActorBeta {
             this.width = width;
             this.height = height;
             this.setPosition(x,y);
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -52,7 +52,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -66,7 +66,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.4f);
+            //this.setScale(0.4f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -79,7 +79,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -92,7 +92,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -105,7 +105,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -118,7 +118,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(100,600); //always spawn there
-            this.setScale(2.0f);
+            //this.setScale(2.0f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -131,7 +131,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -144,7 +144,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -157,7 +157,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -170,7 +170,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -183,7 +183,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -196,7 +196,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
@@ -209,7 +209,7 @@ public class Foods extends ActorBeta {
             this.width = 100;
             this.height = 100;
             this.setPosition(300,600); //always spawn there
-            this.setScale(0.8f);
+            //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
             boundingCircle = new Circle();
