@@ -24,6 +24,20 @@ public class MyGame extends GameBeta {
     static HighscoreScreen highscoreScreen;
     static LoseScreen loseScreen;
     static WinScreen winScreen;
+    public static HighscoreSorter highscoreSorter;
+
+    public static String HighscoreArray[] = new String[]{
+            "King ", "30",
+            "Queen ", "25",
+            "Princess ", "20",
+            "Prince ", "15",
+            "Knight ", "10",
+            "Archer ", "5",
+            "Peasant ", "1",
+            "Peasant ", "1",
+            "Peasant ", "1",
+            "Peasant ", "1"};
+
     static Sound enterSound;
     static Sound bounceSound;
     static Sound cannonSound;

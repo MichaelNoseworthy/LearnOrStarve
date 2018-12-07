@@ -27,10 +27,11 @@ public class InstructionsScreen extends ScreenBeta {
         uiStage.addActor(tableContainer);
 
         label1 = new Label("LABEL", labelStyle);
-        label1.setPosition(WIDTH/2-400, HEIGHT/2+500);
-        label1.setScale(1);
-        label1.setFontScale(1);
-        label1.setText("Place holder for instructions");
+        label1.setWrap(true);
+        label1.setWidth(WIDTH * 0.8f);
+        label1.setAlignment(Align.center);
+        label1.setFontScale(2);
+        label1.setText("Tap on the fruit that the King calls out and fires from his cannon. Missing the food means that you'll starve, and collecting the wrong food will poison you.");
 
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setOrigin(Align.center);
@@ -39,18 +40,12 @@ public class InstructionsScreen extends ScreenBeta {
 
         setUpButton();
 
-        uiTable.row().padTop(HEIGHT / 12).padBottom(HEIGHT / 12);
-        uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight()).expandX();
-
-        toMainMenu.setPosition(Gdx.graphics.getWidth()/2-100, 200);
-
-        uiStage.addActor(toMainMenu);
-
         instrBtn = new instructionsBtn();
-        instrBtn.setPosition(WIDTH/2-260, HEIGHT-135);
-        mainStage.addActor(instrBtn);
-        mainStage.addActor(label1);
-
+        uiTable.add(instrBtn).size(instrBtn.getWidth(), instrBtn.getHeight()).expandX();
+        uiTable.row().pad(HEIGHT/5);
+        uiTable.add(label1).size(label1.getWidth(),label1.getHeight());
+        uiTable.row().pad(HEIGHT/25);
+        uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight()).expandX();
 
     }
 
