@@ -1,6 +1,7 @@
 package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -30,6 +31,9 @@ public class GameScreen extends ScreenBeta {
     ActorBeta foreground;
     ActorBeta background;
 
+    Sound enterSound = MyGame.enterSound;
+    Sound bounceSound = MyGame.bounceSound;
+
     @Override
     public void initialize() {
 //        cannon = new Cannon();
@@ -52,6 +56,7 @@ public class GameScreen extends ScreenBeta {
         background.loadTexture("sprites/backgrounds/background0_20.png");
         background.setScale(2.0f);
 
+
         uiStage.addActor(tableContainer);
 
         setUpButtons();
@@ -65,10 +70,13 @@ public class GameScreen extends ScreenBeta {
 
     }
 
+
+
     @Override
     public void update(float dt) {
 
     }
+
 
     public void setUpButtons() {
 
@@ -76,6 +84,7 @@ public class GameScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
                 Gdx.app.log("To Main?", "+1");
                 if (MyGame.menuScreen == null) {
                     MyGame.menuScreen = new MenuScreen();
@@ -87,6 +96,7 @@ public class GameScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
                 Gdx.app.log("To Main?", "+1");
                 if (MyGame.winScreen == null) {
                     MyGame.winScreen = new WinScreen();
@@ -98,6 +108,7 @@ public class GameScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
                 Gdx.app.log("To Main?", "+1");
                 if (MyGame.loseScreen == null) {
                     MyGame.loseScreen = new LoseScreen();
