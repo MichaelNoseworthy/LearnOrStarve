@@ -1,6 +1,7 @@
 package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
@@ -17,6 +18,8 @@ public class LoseScreen extends ScreenBeta {
 
     TextButton toMainMenu;
     Image lose;
+    Sound enterSound = MyGame.enterSound;
+
     @Override
     public void initialize() {
 
@@ -44,6 +47,8 @@ public class LoseScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+
+                enterSound.play();
                 if (MyGame.menuScreen == null) {
                     MyGame.menuScreen = new MenuScreen();
                 }

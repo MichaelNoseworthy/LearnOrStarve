@@ -1,6 +1,8 @@
 package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -10,6 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+
+import static com.badlogic.gdx.Input.Keys.R;
 
 /**
  * Created by markapptist on 2018-11-12.
@@ -24,7 +28,7 @@ public class MenuScreen extends ScreenBeta {
     TextButton exitButton;
     Image titlePicture;
 
-
+    Sound enterSound = MyGame.enterSound;
     Label label;
 
     /**PARTICLE EFFECTS**/
@@ -107,6 +111,8 @@ public class MenuScreen extends ScreenBeta {
         mainStage.addActor(blood);
 
         mainStage.addActor(blood2);
+
+        //SOUND EFFECTS
     }
 
     public void setUpButtons() {
@@ -115,17 +121,20 @@ public class MenuScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
 
                 if(MyGame.gameScreen == null) {
                     MyGame.gameScreen = new GameScreen();
                 }
                 MyGame.setActiveScreen(MyGame.gameScreen);
+
             }
         });
         helpButton.addListener(new ActorGestureListener() {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
 
                 Gdx.app.log("Yay?","+1");
                 if(MyGame.instructionsScreen == null) {
@@ -138,6 +147,7 @@ public class MenuScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
 
                 Gdx.app.log("Yay?","+1");
                 if(MyGame.optionsScreen == null) {
@@ -150,6 +160,7 @@ public class MenuScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
 
                 Gdx.app.log("Yay?","+1");
                 if(MyGame.highscoreScreen == null) {
@@ -162,6 +173,8 @@ public class MenuScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
+                enterSound.play();
+                MyGame.defaultBackgroundMusic.stop();
                 System.exit(0);
             }
         });

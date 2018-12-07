@@ -1,6 +1,7 @@
 package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
@@ -22,6 +23,7 @@ public class OptionsScreen extends ScreenBeta {
     optionsBtn optionButton;
     mediumBtn mediumButton;
     hardBtn hardButton;
+    Sound enterSound = MyGame.enterSound;
 
     @Override
     public void initialize() {
@@ -68,6 +70,8 @@ public class OptionsScreen extends ScreenBeta {
             @Override
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 Gdx.app.log("Yay?","+1");
+
+                enterSound.play();
                 super.touchDown(event, x, y, pointer, button);
                 if (MyGame.menuScreen == null) {
                     MyGame.menuScreen = new MenuScreen();

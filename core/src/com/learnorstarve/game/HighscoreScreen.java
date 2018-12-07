@@ -2,6 +2,8 @@ package com.learnorstarve.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -25,6 +27,7 @@ public class HighscoreScreen extends ScreenBeta {
     Label label1;
     Label HighscoreTable[];
     String HighscoreArray[] = MyGame.HighscoreArray;
+    Sound enterSound = MyGame.enterSound;
 
     @Override
     public void initialize() {
@@ -77,6 +80,8 @@ public class HighscoreScreen extends ScreenBeta {
             public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 Gdx.app.log("Yay?","+1");
                 super.touchDown(event, x, y, pointer, button);
+
+                enterSound.play();
                 if (MyGame.menuScreen == null) {
                     MyGame.menuScreen = new MenuScreen();
                 }
