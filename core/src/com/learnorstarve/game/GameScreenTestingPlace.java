@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.learnorstarve.game.Food.Apple;
@@ -40,8 +41,24 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
     ArrayList<Foods> foods;
 
-    float resetTimer;
+    //game added
+    Button asking;
+    Button poisonBtn;
+    Label asked;
+    Label ScoreLabel;
+    Label PoisonLabel;
+    boolean needsChange;
+    int rightAnswer;
+    int beingShown;
+    int score;
+    int poisonLvl;
+    int difficulty;
+    float difficultyF;
+    boolean anotherFruit;
+    boolean playerLost;
 
+
+    float resetTimer;
     Foods apple;
     Foods banana;
     Foods blackberry;
@@ -58,8 +75,42 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
     @Override
     public void initialize() {
+        anotherFruit = false;
+        playerLost = false;
+        difficulty = 2;
+        if(MyGame.optionsScreen != null){
+        difficulty = MyGame.optionsScreen.diffultyNum;
+        }
+
+        difficultyF = difficulty;
+        needsChange = false;
+        poisonLvl = 0;
 
         resetTimer = 0;
+
+        beingShown = 0;
+        rightAnswer = 0;
+        score = 0;
+
+        asked = new Label("LABEL", labelStyle);
+        asked.setPosition(WIDTH/2-250,HEIGHT/2);
+        asked.setScale(1);
+        asked.setFontScale(3);
+        asked.setText("Manzana");
+
+
+        ScoreLabel = new Label("LABEL", labelStyle);
+        ScoreLabel.setPosition(100,HEIGHT-50);
+        ScoreLabel.setScale(1);
+        ScoreLabel.setFontScale(1);
+        ScoreLabel.setText("0");
+
+        PoisonLabel = new Label("LABEL", labelStyle);
+        PoisonLabel.setPosition(100,HEIGHT-140);
+        PoisonLabel.setScale(1);
+        PoisonLabel.setFontScale(1);
+        PoisonLabel.setText("0%");
+
 
         Timer timer = new Timer();
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
@@ -69,6 +120,16 @@ public class GameScreenTestingPlace extends ScreenBeta {
         toLoseScreen = new TextButton("Lose Screen", skin.get(("default"), TextButton.TextButtonStyle.class));
         toLoseScreen.setScale(5);
 
+        asking = new TextButton("PICK", skin.get(("default"), TextButton.TextButtonStyle.class));
+        asking.setTransform(true);
+        asking.setScale(4);
+        asking.setPosition(WIDTH/2-200,200);
+
+        poisonBtn = new TextButton("PASS", skin.get(("default"), TextButton.TextButtonStyle.class));
+        poisonBtn.setTransform(true);
+        poisonBtn.setScale(4);
+        poisonBtn.setPosition(WIDTH/2-200,10);
+
         foods = new ArrayList<Foods>();
 
         ActorBeta.setWorldBounds(WIDTH, HEIGHT);
@@ -77,9 +138,10 @@ public class GameScreenTestingPlace extends ScreenBeta {
         foreground.loadTexture("sprites/backgrounds/background0_59.png");
         foreground.setSize(WIDTH, HEIGHT);
 
-        background = new ActorBeta(900, 300, mainStage);
-        background.loadTexture("sprites/backgrounds/background0_20.png");
-        background.setScale(2.0f);
+        background = new ActorBeta(200, 0, mainStage);
+        background.loadTexture("sprites/backgrounds/castle.jpg");
+        background.setOrigin(background.getOriginX(),background.getOriginY());
+        background.setScale(2.0f,8);
 
         uiStage.addActor(tableContainer);
 
@@ -88,14 +150,11 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
 //        mainStage.addActor(cannon);
         uiTable.row().padTop(HEIGHT / 2);
+
         uiTable.add(toMainMenu).size(toMainMenu.getWidth(),toMainMenu.getHeight());
         uiTable.add(toWinScreen).size(toWinScreen.getWidth(),toWinScreen.getHeight());
         uiTable.add(toLoseScreen).size(toLoseScreen.getWidth(),toLoseScreen.getHeight());
 
-        //apple = new Apple(10, 600, 100,100);
-            //apple.setScale(1.5f);
-
-      //  apple2 = new Foods(0,300, 600, 10,10);
         apple = new Foods(0);
         banana = new Foods(1);
         blackberry = new Foods(2);
@@ -106,6 +165,9 @@ public class GameScreenTestingPlace extends ScreenBeta {
         pea = new Foods(7);
         pepper = new Foods(8);
         pineapple = new Foods(9);
+        pumpkin = new Foods(10);
+        tomato = new Foods (11);
+        watermelon = new Foods (12);
 
         foods.add(apple);
         foods.add(banana);
@@ -117,6 +179,15 @@ public class GameScreenTestingPlace extends ScreenBeta {
         foods.add(pea);
         foods.add(pepper);
         foods.add(pineapple);
+        foods.add(pumpkin);
+        foods.add(tomato);
+        foods.add(watermelon);
+
+
+        mainStage.addActor(asked);//text shown
+        mainStage.addActor(ScoreLabel);
+
+        mainStage.addActor(PoisonLabel);
 
         mainStage.addActor(foods.get(0));
         mainStage.addActor(foods.get(1));
@@ -128,17 +199,20 @@ public class GameScreenTestingPlace extends ScreenBeta {
         mainStage.addActor(foods.get(7));
         mainStage.addActor(foods.get(8));
         mainStage.addActor(foods.get(9));
-        //mainStage.addActor(foods.get(10));
+        mainStage.addActor(foods.get(10));
+        mainStage.addActor(foods.get(11));
+        mainStage.addActor(foods.get(12));
+
+        mainStage.addActor(asking);//button
+        mainStage.addActor(poisonBtn);
 
         timer.schedule(new TimerTask(){
             @Override
             public void run() {
-                //foods.get(0).setPosition(0,0);
-                resetTimer = 0;
+                Gdx.app.log("score", "I'm being activated every" + String.valueOf(difficulty));
+                resetTimer = 0f;
             }
-        },0,1000*3);
-
-
+        },0,1000*difficulty);
     }
 
     @Override
@@ -146,43 +220,185 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
         resetTimer = resetTimer +dt;
 
-        if (resetTimer > 3) {
-            int random = MathUtils.random(6);
+        if(needsChange){
+            int random2 = MathUtils.random(12);
+            Gdx.app.log("random2", String.valueOf(random2));
+
+            switch (random2){
+                case 0:
+                    asked.setText("Manzana");//apple
+                    rightAnswer = 0;
+                    needsChange = false;
+                    break;
+
+                case 1:
+                    asked.setText("Platano"); //banana
+                    rightAnswer = 1;
+                    needsChange = false;
+                    break;
+
+                case 2:
+                    asked.setText("Mora");//blackberry
+                    rightAnswer = 2;
+                    needsChange = false;
+                    break;
+
+                case 3:
+                    asked.setText("Guinda");//cherry
+                    rightAnswer = 3;
+                    needsChange = false;
+                    break;
+
+                case 4:
+                    asked.setText("Maiz"); //corn
+                    rightAnswer = 4;
+                    needsChange = false;
+                    break;
+
+                case 5:
+                    asked.setText("Jalapegno");//Jalapeno
+                    rightAnswer = 5;
+                    needsChange = false;
+                    break;
+
+                case 6:
+                    asked.setText("Limon");
+                    rightAnswer = 6;
+                    needsChange = false;
+                    break;
+
+                case 7:
+                    asked.setText("Arveja");
+                    rightAnswer = 7;
+                    needsChange = false;
+                    break;
+
+                case 8:
+                    asked.setText("Pimienta");
+                    rightAnswer = 8;
+                    needsChange = false;
+                    break;
+
+                case 9:
+                    asked.setText("Ananas");
+                    rightAnswer = 9;
+                    needsChange = false;
+                    break;
+
+                case 10:
+                    asked.setText("Calabaza");
+                    rightAnswer = 10;
+                    needsChange = false;
+                    break;
+
+                case 11:
+                    asked.setText("Tomate");
+                    rightAnswer = 11;
+                    needsChange = false;
+                    break;
+
+                case 12:
+                    asked.setText("Sandia");
+                    rightAnswer = 12;
+                    needsChange = false;
+                    break;
+
+                default:
+                    asked.setText("Default");
+                    needsChange = false;
+                    break;
+            }
+        }
+
+        if(resetTimer >= difficultyF){
+            anotherFruit = true;
+        }
+
+        if (anotherFruit) {
+            anotherFruit = false;
+            int random = MathUtils.random(12);
             Gdx.app.log("random", String.valueOf(random));
             switch (random) {
                 case 0:
+                    beingShown = 0;
                    foods.get(0).setPosition(0,0);
-
                    break;
 
                 case 1:
+                    beingShown = 1;
                     foods.get(1).setPosition(0,0);
-
                     break;
+
                 case 2:
+                    beingShown = 2;
                     foods.get(2).setPosition(0,0);
-
                     break;
+
                 case 3:
+                    beingShown = 3;
                     foods.get(3).setPosition(0,0);
-
                     break;
+
                 case 4:
+                    beingShown = 4;
                     foods.get(4).setPosition(0,0);
                     break;
                 case 5:
+                    beingShown = 5;
                     foods.get(5).setPosition(0,0);
                     break;
 
                 case 6:
+                    beingShown = 6;
                     foods.get(6).setPosition(0,0);
                     break;
 
-                default:
+                case 7:
+                    beingShown = 7;
                     foods.get(7).setPosition(0,0);
+                    break;
 
+                case 8:
+                    beingShown = 8;
+                    foods.get(8).setPosition(0,0);
+                    break;
+
+                case 9:
+                    beingShown = 9;
+                    foods.get(9).setPosition(0,0);
+                    break;
+
+                case 10:
+                    beingShown = 10;
+                    foods.get(10).setPosition(0,0);
+                    break;
+
+                case 11:
+                    beingShown = 11;
+                    foods.get(11).setPosition(0,0);
+                    break;
+
+                case 12:
+                    beingShown = 12;
+                    foods.get(12).setPosition(0,0);
+                    break;
+
+                default:
+                    foods.get(0).setPosition(0,0);
                     break;
             }
+        }
+
+        if(poisonLvl >= 100){
+            playerLost = true;
+        }
+
+
+        if(playerLost){
+            if (MyGame.loseScreen == null) {
+                MyGame.loseScreen = new LoseScreen();
+            }
+            MyGame.setActiveScreen(MyGame.loseScreen);
         }
     }
 
@@ -221,5 +437,59 @@ public class GameScreenTestingPlace extends ScreenBeta {
                 MyGame.setActiveScreen(MyGame.loseScreen);
             }
         });
+
+        asking.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchDown(event, x, y, pointer, button);
+                Gdx.app.log("Button pressed", "pressed");
+                Gdx.app.log("score", String.valueOf(difficulty));
+                if(rightAnswer == beingShown)
+                {
+                    score = score + 250;
+                    ScoreLabel.setText(String.format("%03d", score));
+                    Gdx.app.log("score", "Score plus plus");
+                    resetTimer = 0f;
+                    //needs test
+                    anotherFruit = true;
+                    if(poisonLvl > 0){
+                        Gdx.app.log("score", "TEST");
+                        poisonLvl = poisonLvl - 5;
+                        PoisonLabel.setText(String.format("%03d", poisonLvl)+"%");
+                    }
+                }
+                else  {
+                    Gdx.app.log("poison", "Score minus");
+                    poisonLvl = poisonLvl + 25;
+                    PoisonLabel.setText(String.format("%03d", poisonLvl)+"%");
+                }
+                needsChange = true;
+            }
+        });
+
+        poisonBtn.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchDown(event, x, y, pointer, button);
+                Gdx.app.log("Button pressed", "pressed");
+                resetTimer = 0f;
+                anotherFruit = true;
+            }
+        });
+
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+
+        MyGame.gameScreen = null;
+        foods = null;
+        uiStage = null;
+        PoisonLabel = null;
+        ScoreLabel = null;
+        asking = null;
+        asked = null;
+
     }
 }

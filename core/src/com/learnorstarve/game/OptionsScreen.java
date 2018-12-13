@@ -23,10 +23,11 @@ public class OptionsScreen extends ScreenBeta {
     mediumBtn mediumButton;
     hardBtn hardButton;
 
+    int diffultyNum;
+
     @Override
     public void initialize() {
-
-
+        diffultyNum = 2;
 
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setOrigin(Align.center);
@@ -73,6 +74,33 @@ public class OptionsScreen extends ScreenBeta {
                     MyGame.menuScreen = new MenuScreen();
                 }
                 MyGame.setActiveScreen(MyGame.menuScreen);
+            }
+        });
+
+        easyButton.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Gdx.app.log("Yay?","+1");
+                super.touchDown(event, x, y, pointer, button);
+                diffultyNum = 3;
+            }
+        });
+
+        mediumButton.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Gdx.app.log("Yay?","+1");
+                super.touchDown(event, x, y, pointer, button);
+                diffultyNum =2;
+            }
+        });
+
+        hardButton.addListener(new ActorGestureListener() {
+            @Override
+            public void touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Gdx.app.log("Yay?","+1");
+                super.touchDown(event, x, y, pointer, button);
+                diffultyNum = 1;
             }
         });
     }
