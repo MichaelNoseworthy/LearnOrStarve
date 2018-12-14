@@ -105,31 +105,31 @@ public class GameScreenTestingPlace extends ScreenBeta {
         asked.setText("Manzana");
 
         ScoreLabelName = new Label("Score: ", labelStyle);
-        ScoreLabelName.setPosition(50,HEIGHT-150);
-        ScoreLabelName.setScale(1);
-        ScoreLabelName.setFontScale(1);
+        ScoreLabelName.setPosition(50,HEIGHT-250);
+        ScoreLabelName.setScale(3);
+        ScoreLabelName.setFontScale(3);
 
         ScoreLabel = new Label("LABEL", labelStyle);
-        ScoreLabel.setPosition(280,HEIGHT-150);
-        ScoreLabel.setScale(1);
-        ScoreLabel.setFontScale(1);
+        ScoreLabel.setPosition(680,HEIGHT-250);
+        ScoreLabel.setScale(3);
+        ScoreLabel.setFontScale(3);
         ScoreLabel.setText("0");
 
         PoisonLabelName = new Label("Toxicity: ", labelStyle);
-        PoisonLabelName.setPosition(50,HEIGHT - 240);
-        PoisonLabelName.setScale(1);
-        PoisonLabelName.setFontScale(1);
+        PoisonLabelName.setPosition(50,HEIGHT - 340);
+        PoisonLabelName.setScale(3);
+        PoisonLabelName.setFontScale(3);
 
         PoisonLabel = new Label("LABEL", labelStyle);
-        PoisonLabel.setPosition(320,HEIGHT - 240);
-        PoisonLabel.setScale(1);
-        PoisonLabel.setFontScale(1);
+        PoisonLabel.setPosition(820,HEIGHT - 340);
+        PoisonLabel.setScale(3);
+        PoisonLabel.setFontScale(3);
         PoisonLabel.setText("0%");
 
 
         Timer timer = new Timer();
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
-        toMainMenu.setScale(5);
+        //toMainMenu.setScale(15);
         toMainMenu.setPosition(50,HEIGHT-100);
         toWinScreen = new TextButton("Win Screen", skin.get(("default"), TextButton.TextButtonStyle.class));
         toWinScreen.setScale(5);
@@ -148,16 +148,17 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
         foods = new ArrayList<Foods>();
 
-        ActorBeta.setWorldBounds(WIDTH, HEIGHT);
-
+        ActorBeta.setWorldBounds(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+/*
         foreground = new ActorBeta(0, 0, mainStage);
         foreground.loadTexture("sprites/backgrounds/background0_59.png");
-        foreground.setSize(WIDTH, HEIGHT);
-
-        background = new ActorBeta(200, 0, mainStage);
+        foreground.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+*/
+        background = new ActorBeta(0, 0, mainStage);
         background.loadTexture("sprites/backgrounds/castle.jpg");
         background.setOrigin(background.getOriginX(),background.getOriginY());
-        background.setScale(2.0f,8);
+        background.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        //background.setScale(2.0f,8);
 
         //uiStage.addActor(tableContainer);
 
