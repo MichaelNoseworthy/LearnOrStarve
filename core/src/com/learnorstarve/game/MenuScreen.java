@@ -109,9 +109,9 @@ public class MenuScreen extends ScreenBeta {
         blood2.setPosition((WIDTH / 2) + 100, (HEIGHT / 2) + 100);
         blood2.setScale(1.0f);
 
-        mainStage.addActor(blood);
+        //mainStage.addActor(blood);
 
-        mainStage.addActor(blood2);
+        //mainStage.addActor(blood2);
 
         //SOUND EFFECTS
     }

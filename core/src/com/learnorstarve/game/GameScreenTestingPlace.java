@@ -129,10 +129,13 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
         Timer timer = new Timer();
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
-        //toMainMenu.setScale(15);
-        toMainMenu.setPosition(50,HEIGHT-100);
+        toMainMenu.setScale(15);
+        toMainMenu.setSize(300,200);
+        toMainMenu.setPosition(150,HEIGHT-200);
+
         toWinScreen = new TextButton("Win Screen", skin.get(("default"), TextButton.TextButtonStyle.class));
         toWinScreen.setScale(5);
+
         toLoseScreen = new TextButton("Lose Screen", skin.get(("default"), TextButton.TextButtonStyle.class));
         toLoseScreen.setScale(5);
 
@@ -173,7 +176,7 @@ public class GameScreenTestingPlace extends ScreenBeta {
                 //.padTop();
 
 
-        //uiTable.add(toMainMenu).size(toMainMenu.getWidth(),toMainMenu.getHeight());
+        uiTable.add(toMainMenu).size(toMainMenu.getWidth(),toMainMenu.getHeight());
         //uiTable.add(toWinScreen).size(toWinScreen.getWidth(),toWinScreen.getHeight());
         //uiTable.add(toLoseScreen).size(toLoseScreen.getWidth(),toLoseScreen.getHeight());
 
