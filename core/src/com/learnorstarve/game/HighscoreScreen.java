@@ -65,7 +65,7 @@ public class HighscoreScreen extends ScreenBeta {
 
         //uiTable.add(label1).size(label1.getWidth(), label1.getHeight());        uiTable.row().padTop(HEIGHT / 25).padBottom(HEIGHT/25);
         for (int i = 0; i < HighscoreTable.length; i++) {
-            uiTable.add(HighscoreTable[i]).size(HighscoreTable[i].getPrefWidth(), HighscoreTable[i].getPrefHeight());
+            uiTable.add(HighscoreTable[i]).size(Math.min(Gdx.graphics.getWidth(), HighscoreTable[i].getPrefWidth()), HighscoreTable[i].getPrefHeight());
             uiTable.row().padTop(HEIGHT / 100).padBottom(HEIGHT / 100);
         }
 

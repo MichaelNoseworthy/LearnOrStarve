@@ -12,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Touchpad;
 import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.learnorstarve.game.ActorBeta;
-import com.learnorstarve.game.Temp.BlueRanger;
 
 import javax.xml.soap.Text;
 

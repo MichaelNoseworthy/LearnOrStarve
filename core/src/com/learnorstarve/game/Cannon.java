@@ -21,12 +21,12 @@ public class Cannon extends ActorBeta {
     private Circle boundingCircle;
 
     public Cannon(float x, float y, int width, int height) {
+        loadTexture("UI/cannon.png");
         this.width = width;
         this.height = height;
-        position = new Vector2(x, y);
+        this.setPosition(100,100); //always spawn there
         velocity = new Vector2(0, 0);
         acceleration = new Vector2(0, 460);
         boundingCircle = new Circle();
-        loadTexture("UI/cannon.png");
     }
 }

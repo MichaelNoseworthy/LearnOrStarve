@@ -5,7 +5,7 @@ public class instructionsBtn extends ActorBeta{
 
 
     public instructionsBtn(){
-        loadTexture("instructions.png");
+        loadTexture("UI/instructions.png");
         this.setBoundaryRectangle();
     }
 

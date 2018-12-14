@@ -2,9 +2,18 @@ package com.learnorstarve.game;
 
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
+import com.learnorstarve.game.Food.Food;
 
 public class Foods extends ActorBeta {
 
+
+
+    private float FoodSpeedX = 3;
+    private float FoodSpeedY = 10;
+
+    private int BaseSpeedX = 3;
+    private int BaseSpeedY = 10;
+    private int difficultyMod = 1;
     private Vector2 velocity;
     private Vector2 acceleration;
 
@@ -215,14 +224,34 @@ public class Foods extends ActorBeta {
             boundingCircle = new Circle();
             this.setBoundaryRectangle();
         }
+        setFoodSpeed(MyGame.difficulty);
     }
 
     @Override
     public void act(float dt) {
         super.act(dt);
 
-        moveBy(10,30);
+        moveBy(FoodSpeedX,FoodSpeedY);
 
+    }
+
+    public float getSpeedX()
+    {
+        return FoodSpeedX;
+    }
+    public float getSpeedY()
+    {
+        return FoodSpeedY;
+    }
+
+    public void setFoodSpeed(int a)
+    {
+        if(a != difficultyMod)
+        {
+            difficultyMod = a;
+            FoodSpeedX = a * BaseSpeedX;
+            FoodSpeedY = a * BaseSpeedY;
+        }
     }
 
 }

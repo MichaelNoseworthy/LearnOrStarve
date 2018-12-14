@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 import static com.badlogic.gdx.Input.Keys.R;
+import static com.learnorstarve.game.MyGame.gameScreenTestingPlace;
 
 /**
  * Created by markapptist on 2018-11-12.
@@ -123,10 +124,11 @@ public class MenuScreen extends ScreenBeta {
                 super.touchDown(event, x, y, pointer, button);
                 enterSound.play();
 
-                if(MyGame.gameScreen == null) {
-                    MyGame.gameScreen = new GameScreen();
+                if(gameScreenTestingPlace == null) {
+                    gameScreenTestingPlace = new GameScreenTestingPlace();
                 }
-                MyGame.setActiveScreen(MyGame.gameScreen);
+                MyGame.PAUSEGAME = false;
+                MyGame.setActiveScreen(gameScreenTestingPlace);
 
             }
         });
