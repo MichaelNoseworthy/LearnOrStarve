@@ -1,5 +1,6 @@
 package com.learnorstarve.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
 import com.learnorstarve.game.Food.Food;
@@ -22,6 +23,10 @@ public class Foods extends ActorBeta {
     private int height;
     private int numberHold;
     private String name;
+
+
+    static int WIDTH = Gdx.graphics.getWidth();
+    static int HEIGHT = Gdx.graphics.getHeight();
 
     private Circle boundingCircle;
 
@@ -60,7 +65,8 @@ public class Foods extends ActorBeta {
             loadTexture("foods/apple.png");
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            numberHold = 0;
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -74,7 +80,7 @@ public class Foods extends ActorBeta {
             numberHold = 1;
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.4f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -87,7 +93,7 @@ public class Foods extends ActorBeta {
             numberHold = 2;
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -100,7 +106,7 @@ public class Foods extends ActorBeta {
             numberHold = 3;
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -113,7 +119,7 @@ public class Foods extends ActorBeta {
             numberHold = 4;
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -126,7 +132,7 @@ public class Foods extends ActorBeta {
             numberHold = 5;
             this.width = 100;
             this.height = 100;
-            this.setPosition(100,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(2.0f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -139,7 +145,7 @@ public class Foods extends ActorBeta {
             loadTexture("foods/lemon.png");
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -152,7 +158,7 @@ public class Foods extends ActorBeta {
             numberHold = 7;
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -165,7 +171,7 @@ public class Foods extends ActorBeta {
             numberHold = 8;
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -178,7 +184,7 @@ public class Foods extends ActorBeta {
             numberHold = 9;
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -191,7 +197,7 @@ public class Foods extends ActorBeta {
             numberHold = 10;
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -204,7 +210,7 @@ public class Foods extends ActorBeta {
             numberHold = 11;
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);
@@ -217,7 +223,7 @@ public class Foods extends ActorBeta {
             numberHold = 12;
             this.width = 100;
             this.height = 100;
-            this.setPosition(300,600); //always spawn there
+            this.setPosition(WIDTH,600); //always spawn there
             //this.setScale(0.8f);
             velocity = new Vector2(0, 0);
             acceleration = new Vector2(0, 460);

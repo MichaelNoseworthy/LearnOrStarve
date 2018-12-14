@@ -60,6 +60,11 @@ public class GameScreenTestingPlace extends ScreenBeta {
     float difficultyF;
     boolean anotherFruit;
     boolean playerLost;
+    boolean playerWin;
+
+    Label StreakLabelName;//
+    Label StreakLabel;//
+    int streakCounter;
 
 
     float resetTimer;
@@ -79,6 +84,7 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
     @Override
     public void initialize() {
+        streakCounter = 0;
         anotherFruit = false;
         playerLost = false;
         difficulty = 2;
@@ -104,6 +110,19 @@ public class GameScreenTestingPlace extends ScreenBeta {
         asked.setFontScale(3);
         asked.setText("Manzana");
 
+        StreakLabelName = new Label("LABEL", labelStyle);
+        StreakLabelName.setPosition(50, HEIGHT - 450);
+        StreakLabelName.setScale(1);
+        StreakLabelName.setFontScale(3);
+        StreakLabelName.setText("Streak: ");
+
+
+        StreakLabel = new Label("LABEL", labelStyle);
+        StreakLabel.setPosition(820, HEIGHT - 650);
+        StreakLabel.setScale(1);
+        StreakLabel.setFontScale(3);
+        StreakLabel.setText("3");
+
         ScoreLabelName = new Label("Score: ", labelStyle);
         ScoreLabelName.setPosition(50,HEIGHT-250);
         ScoreLabelName.setScale(3);
@@ -121,7 +140,7 @@ public class GameScreenTestingPlace extends ScreenBeta {
         PoisonLabelName.setFontScale(3);
 
         PoisonLabel = new Label("LABEL", labelStyle);
-        PoisonLabel.setPosition(820,HEIGHT - 340);
+        PoisonLabel.setPosition(820,HEIGHT - 440);
         PoisonLabel.setScale(3);
         PoisonLabel.setFontScale(3);
         PoisonLabel.setText("0%");
@@ -210,6 +229,8 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
 
         mainStage.addActor(asked);//text shown
+        mainStage.addActor(StreakLabel);
+        mainStage.addActor(StreakLabelName);
 
         mainStage.addActor(ScoreLabel);
         mainStage.addActor(PoisonLabel);
@@ -247,6 +268,19 @@ public class GameScreenTestingPlace extends ScreenBeta {
 
     @Override
     public void update(float dt) {
+
+        if(streakCounter == 1){
+            StreakLabel.setText("2");
+        }
+
+        if(streakCounter == 2){
+            StreakLabel.setText("1");
+        }
+
+        if(streakCounter == 3){
+            StreakLabel.setText("0");
+            playerWin = true;
+        }
 
         if (MyGame.PAUSEGAME == false) {
             resetTimer = resetTimer + dt;
@@ -439,6 +473,20 @@ public class GameScreenTestingPlace extends ScreenBeta {
                 MyGame.setActiveScreen(MyGame.loseScreen);
             }
 
+            if (playerWin) {
+                if (MyGame.winScreen == null) {
+                    MyGame.winScreen = new WinScreen();
+                }
+
+                MyGame.PAUSEGAME = true;
+                PoisonLabel.setText("0%");
+                ScoreLabel.setText("0");
+                score = 0;
+                poisonLvl = 0;
+                playerWin = false;
+                MyGame.setActiveScreen(MyGame.winScreen);
+            }
+
         }
     }
 
@@ -493,6 +541,7 @@ public class GameScreenTestingPlace extends ScreenBeta {
                     ScoreLabel.setText(String.format("%03d", score));
                     Gdx.app.log("score", "Score plus plus");
                     resetTimer = 0f;
+                    streakCounter++;
                     //needs test
                     anotherFruit = true;
                     if(poisonLvl > 0){
@@ -546,6 +595,8 @@ public class GameScreenTestingPlace extends ScreenBeta {
         //uiStage = null;
         //score = 0;
         //playerLost = false;
+        //counterStreak = 0;
+        //playerWin = false;
         //PoisonLabel.dispose();
         //ScoreLabel.dispose();
         // = null;
