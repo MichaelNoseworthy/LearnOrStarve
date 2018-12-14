@@ -31,7 +31,7 @@ import java.util.TimerTask;
 public class GameScreenTestingPlace extends ScreenBeta {
 
 
-    //    Cannon cannon;
+    Cannon cannon;
     Button toMainMenu;
     Button toWinScreen;
     Button toLoseScreen;
@@ -40,6 +40,8 @@ public class GameScreenTestingPlace extends ScreenBeta {
     ActorBeta background;
 
     ArrayList<Foods> foods;
+    int cannonX = 20;
+    int cannonY = 20;
 
     //game added
     Button asking;
@@ -160,7 +162,9 @@ public class GameScreenTestingPlace extends ScreenBeta {
         //uiStage.addActor(tableContainer);
 
         setUpButtons();
-//        cannon.setPosition(0, Gdx.graphics.getHeight() - cannon.getHeight());
+        cannon = new Cannon();
+        cannon.setPosition(10, 10);
+        cannon.setRotation(30);
 
 //        mainStage.addActor(cannon);
         //uiTable.row().padTop(ScoreLabel.getOriginX());
@@ -226,6 +230,7 @@ public class GameScreenTestingPlace extends ScreenBeta {
         mainStage.addActor(asking);//button
         mainStage.addActor(poisonBtn);
         mainStage.addActor(toMainMenu);
+        mainStage.addActor(cannon);
 
         timer.schedule(new TimerTask(){
             @Override
@@ -343,70 +348,70 @@ public class GameScreenTestingPlace extends ScreenBeta {
                 switch (random) {
                     case 0:
                         beingShown = 0;
-                        foods.get(0).setPosition(0, 0);
+                        foods.get(0).setPosition(cannonX, cannonY);
                         break;
 
                     case 1:
                         beingShown = 1;
-                        foods.get(1).setPosition(0, 0);
+                        foods.get(1).setPosition(cannonX, cannonY);
                         break;
 
                     case 2:
                         beingShown = 2;
-                        foods.get(2).setPosition(0, 0);
+                        foods.get(2).setPosition(cannonX, cannonY);
                         break;
 
                     case 3:
                         beingShown = 3;
-                        foods.get(3).setPosition(0, 0);
+                        foods.get(3).setPosition(cannonX, cannonY);
                         break;
 
                     case 4:
                         beingShown = 4;
-                        foods.get(4).setPosition(0, 0);
+                        foods.get(4).setPosition(cannonX, cannonY);
                         break;
                     case 5:
                         beingShown = 5;
-                        foods.get(5).setPosition(0, 0);
+                        foods.get(5).setPosition(cannonX, cannonY);
                         break;
 
                     case 6:
                         beingShown = 6;
-                        foods.get(6).setPosition(0, 0);
+                        foods.get(6).setPosition(cannonX, cannonY);
                         break;
 
                     case 7:
                         beingShown = 7;
-                        foods.get(7).setPosition(0, 0);
+                        foods.get(7).setPosition(cannonX, cannonY);
                         break;
 
                     case 8:
                         beingShown = 8;
-                        foods.get(8).setPosition(0, 0);
+                        foods.get(8).setPosition(cannonX, cannonY);
                         break;
 
                     case 9:
                         beingShown = 9;
-                        foods.get(9).setPosition(0, 0);
+                        foods.get(9).setPosition(cannonX, cannonY);
                         break;
 
                     case 10:
                         beingShown = 10;
-                        foods.get(10).setPosition(0, 0);
+                        foods.get(10).setPosition(cannonX, cannonY);
                         break;
 
                     case 11:
                         beingShown = 11;
-                        foods.get(11).setPosition(0, 0);
+                        foods.get(11).setPosition(cannonX, cannonY);
                         break;
 
                     case 12:
                         beingShown = 12;
-                        foods.get(12).setPosition(0, 0);
+                        foods.get(12).setPosition(cannonX, cannonY);
                         break;
 
                     default:
-                        foods.get(0).setPosition(0, 0);
+                        foods.get(0).setPosition(cannonX, cannonY);
                         break;
                 }
             }

@@ -30,8 +30,9 @@ public class InstructionsScreen extends ScreenBeta {
         label1.setWrap(true);
         label1.setWidth(WIDTH * 0.8f);
         label1.setAlignment(Align.center);
-        label1.setFontScale(2);
-        label1.setText("Tap on the fruit that the King calls out and fires from his cannon. Missing the food means that you'll starve, and collecting the wrong food will poison you.");
+        label1.setFontScale(1);
+        label1.setText("Tap \"Pick\" on the fruit that the King calls out and fires from his cannon.  Unfortionately, the king does not speak English.  " +
+                "Tap on PASS to go to the next fruit.  Collecting the wrong food will poison you.");
 
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
         toMainMenu.setOrigin(Align.center);
@@ -42,8 +43,8 @@ public class InstructionsScreen extends ScreenBeta {
 
         instrBtn = new instructionsBtn();
         uiTable.add(instrBtn).size(instrBtn.getWidth(), instrBtn.getHeight()).expandX();
-        uiTable.row().pad(HEIGHT/5);
-        uiTable.add(label1).size(Math.min(label1.getWidth(),Gdx.graphics.getWidth()),Math.min(label1.getWidth(),Gdx.graphics.getHeight() * 0.8f));
+        uiTable.row().pad(HEIGHT/50);
+        uiTable.add(label1).size(Math.min(label1.getWidth(),Gdx.graphics.getWidth()),Math.min(label1.getWidth(),Gdx.graphics.getHeight() * 1.0f));
         uiTable.row().pad(HEIGHT/25);
         uiTable.add(toMainMenu).size(toMainMenu.getWidth(), toMainMenu.getHeight()).expandX();
 

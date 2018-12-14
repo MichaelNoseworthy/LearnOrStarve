@@ -42,7 +42,7 @@ public class HighscoreScreen extends ScreenBeta {
             HighscoreTable[i] = new Label("#"+Integer.toString(i+1)+ ": "+HighscoreArray[2*i]+HighscoreArray[2*i+1],labelStyle);
             Gdx.app.log("Attempt "+i,"Failed.");
             HighscoreTable[i].setOrigin(Align.center);
-            HighscoreTable[i].setFontScale(2);
+            HighscoreTable[i].setFontScale(1);
         };
 
         toMainMenu = new TextButton("Main Menu", skin.get(("default"), TextButton.TextButtonStyle.class));
@@ -51,7 +51,7 @@ public class HighscoreScreen extends ScreenBeta {
         toMainMenu.setScale(3);
 
         label1 = new Label("LABEL", labelStyle);
-        label1.setPosition(WIDTH/2-400, HEIGHT/2+500);
+        label1.setPosition(WIDTH/2-400, HEIGHT/2+400);
         label1.setScale(1);
         label1.setFontScale(1);
         label1.setText("Place holder for scores");
